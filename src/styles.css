@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-ivory: #fffaf3;
+  --color-champagne: #feefdb;
+  --color-gold: #d8b45d;
+  --color-gold-light: #f0d79b;
+  --color-gold-deep: #b88d2e;
+  --color-silver: #d9dee6;
+  --color-forest: #385541;
+  --color-bronze: #715c40;
+  --color-stone: #d0ccc1;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    background:
+      radial-gradient(circle at top left, rgba(216, 180, 93, 0.18), transparent 28%),
+      radial-gradient(circle at 85% 10%, rgba(217, 222, 230, 0.65), transparent 24%),
+      linear-gradient(180deg, #fffefb 0%, #f6f1e8 46%, #fffefb 100%);
+    color: #27332d;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background: rgba(56, 85, 65, 0.15);
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .panel {
+    @apply rounded-[2rem] border border-white/70 bg-white/78 shadow-[0_22px_60px_rgba(56,85,65,0.11)] backdrop-blur;
+  }
+
+  .cta-button {
+    @apply inline-flex items-center justify-center rounded-full bg-forest px-5 py-3 text-sm font-semibold text-white transition hover:bg-forest/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center rounded-full border border-bronze/15 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-bronze/25 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
+  }
+}
