@@ -143,8 +143,8 @@ export const siteContent = {
         title: 'Acompanhamento sereno para alianças e joias de cerimónia',
         description:
           'Marcamos visitas dedicadas para casais que procuram atenção ao estilo, ao conforto e à personalização.',
-        imageSrc: '/images/carousel-wedding.svg',
-        alt: 'Conjunto de alianças e joias de cerimónia sobre fundo dourado claro.',
+        imageSrc: '/images/aliancas.jpg',
+        alt: 'Conjunto de alianças e joias de cerimónia sobre fundo claro.',
       },
     ] satisfies CarouselSlide[],
     sections: {

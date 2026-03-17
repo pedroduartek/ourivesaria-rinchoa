@@ -36,8 +36,8 @@ export function CasamentosPage() {
           <div className="overflow-hidden rounded-xl border border-bronze/10 bg-slate-900">
             <img
               className="h-full min-h-[320px] w-full object-cover object-center"
-              src="/images/carousel-wedding.svg"
-              alt="Alianças e joias de cerimónia em composição elegante."
+              src="/images/gravacao_aliancas.jpg"
+              alt="Alianças em caixa decorativa para cerimónia."
             />
           </div>
         </div>
