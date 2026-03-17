@@ -33,7 +33,7 @@ export function RestauracaoPage() {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-bronze/10 bg-gradient-to-br from-white via-champagne to-silver px-6 py-6">
+          <div className="rounded-xl border border-bronze/10 bg-gradient-to-br from-white via-champagne to-silver px-6 py-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-bronze/80">
               Resultado visível
             </p>
@@ -55,7 +55,7 @@ export function RestauracaoPage() {
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {restoration.beforeAfter.map((item) => (
             <article key={item.stage} className="panel overflow-hidden p-5">
-              <div className="overflow-hidden rounded-[1.75rem] bg-slate-950">
+              <div className="overflow-hidden rounded-xl bg-slate-950">
                 <img className="h-[320px] w-full object-cover object-center" src={item.imageSrc} alt={item.alt} />
               </div>
               <p className="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">

@@ -36,7 +36,7 @@ export function HomePage() {
 
             <dl className="mt-10 grid gap-4 sm:grid-cols-3">
               {home.hero.stats.map((item) => (
-                <div key={item.label} className="rounded-[1.5rem] border border-bronze/10 bg-white/75 px-4 py-5">
+                <div key={item.label} className="rounded-lg border border-bronze/10 bg-white/75 px-4 py-5">
                   <dt className="text-3xl font-semibold text-forest">{item.value}</dt>
                   <dd className="mt-2 text-sm leading-6 text-slate-600">{item.label}</dd>
                 </div>
@@ -80,9 +80,9 @@ export function HomePage() {
 
           <div className="grid gap-5">
             {home.sections.reasons.items.map((item) => (
-              <article
+                <article
                 key={item.title}
-                className="rounded-[1.75rem] border border-bronze/10 bg-white/80 px-6 py-6 shadow-[0_18px_48px_rgba(56,85,65,0.08)]"
+                className="rounded-xl border border-bronze/10 bg-white/80 px-6 py-6 shadow-[0_18px_48px_rgba(56,85,65,0.08)]"
               >
                 <h2 className="text-3xl text-slate-900">{item.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>

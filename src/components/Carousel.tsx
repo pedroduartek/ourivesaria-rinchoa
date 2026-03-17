@@ -43,7 +43,7 @@ export function Carousel({ slides }: CarouselProps) {
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-900">
+      <div className="relative overflow-hidden rounded-xl bg-slate-900">
         <img
           className="h-[340px] w-full object-cover object-center sm:h-[420px]"
           src={activeSlide.imageSrc}

@@ -30,7 +30,7 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
           </div>
 
           <div className="grid gap-4">
-            <div className="rounded-[1.75rem] border border-bronze/10 bg-gradient-to-br from-white via-white to-champagne px-5 py-5">
+            <div className="rounded-xl border border-bronze/10 bg-gradient-to-br from-white via-white to-champagne px-5 py-5">
               <h3 className="text-lg font-semibold text-slate-900">Visita à loja</h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {siteContent.contacts.address.value}
@@ -40,7 +40,7 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
               </p>
             </div>
 
-            <div className="rounded-[1.75rem] border border-bronze/10 bg-white/85 px-5 py-5">
+            <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
               <h3 className="text-lg font-semibold text-slate-900">Contactos diretos</h3>
               <ul className="mt-4 space-y-3 text-sm text-slate-600">
                 {siteContent.contacts.methods.map((item) => (
@@ -53,7 +53,7 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
               </ul>
             </div>
 
-            <div className="rounded-[1.75rem] border border-bronze/10 bg-white/85 px-5 py-5">
+            <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
               <h3 className="text-lg font-semibold text-slate-900">Horário</h3>
               <ul className="mt-4 space-y-2 text-sm text-slate-600">
                 {siteContent.contacts.hours.map((item) => (

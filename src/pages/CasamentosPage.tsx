@@ -33,7 +33,7 @@ export function CasamentosPage() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-bronze/10 bg-slate-900">
+          <div className="overflow-hidden rounded-xl border border-bronze/10 bg-slate-900">
             <img
               className="h-full min-h-[320px] w-full object-cover object-center"
               src="/images/carousel-wedding.svg"
