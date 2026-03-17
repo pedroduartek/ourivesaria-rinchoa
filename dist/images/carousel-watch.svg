@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#24322d" />
+      <stop offset="55%" stop-color="#385541" />
+      <stop offset="100%" stop-color="#0f1613" />
+    </linearGradient>
+    <linearGradient id="metal" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#d9dee6" />
+      <stop offset="45%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#b8c2ce" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#d7ae4a" />
+      <stop offset="100%" stop-color="#f0d79b" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <circle cx="250" cy="180" r="170" fill="#d8b45d" opacity=".12" />
+  <circle cx="1340" cy="720" r="220" fill="#d9dee6" opacity=".08" />
+  <rect x="700" y="130" width="200" height="160" rx="46" fill="#715c40" opacity=".75" />
+  <rect x="700" y="610" width="200" height="160" rx="46" fill="#715c40" opacity=".75" />
+  <rect x="652" y="210" width="296" height="480" rx="142" fill="url(#metal)" />
+  <circle cx="800" cy="450" r="172" fill="#fffdf7" stroke="url(#gold)" stroke-width="18" />
+  <circle cx="800" cy="450" r="144" fill="#ffffff" opacity=".95" />
+  <circle cx="800" cy="450" r="10" fill="#385541" />
+  <path d="M800 450l0-84" stroke="#385541" stroke-width="16" stroke-linecap="round" />
+  <path d="M800 450l66 40" stroke="#715c40" stroke-width="14" stroke-linecap="round" />
+  <g stroke="#385541" stroke-linecap="round">
+    <path d="M800 324v26" stroke-width="8" />
+    <path d="M800 550v26" stroke-width="8" />
+    <path d="M674 450h26" stroke-width="8" />
+    <path d="M900 450h26" stroke-width="8" />
+  </g>
+  <circle cx="800" cy="450" r="196" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="10" />
+  <path d="M584 540c92 70 338 68 430-6" fill="none" stroke="#f0d79b" stroke-opacity=".55" stroke-width="12" stroke-linecap="round" />
+</svg>
+
