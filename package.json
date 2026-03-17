@@ -8,13 +8,13 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "deploy": "npm run build && npx firebase deploy --only hosting"
   },
   "keywords": [
     "react",
     "vite",
     "tailwind",
-    "vercel",
     "ourivesaria"
   ],
   "author": "OpenAI Codex",
@@ -46,6 +46,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1",
     "vite": "^7.3.1",
+    "firebase-tools": "^12.0.0",
     "vitest": "^4.1.0"
   }
 }
