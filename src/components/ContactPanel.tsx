@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { siteContent } from '../content/siteContent'
 
 interface ContactPanelProps {
@@ -29,54 +30,14 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
             </div>
           </div>
 
-          <div className="grid gap-4">
-            <div className="rounded-xl border border-bronze/10 bg-gradient-to-br from-white via-white to-champagne px-5 py-5">
-              <h3 className="text-lg font-semibold text-slate-900">Visita à loja</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                {siteContent.contacts.address.value}
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                {siteContent.contacts.appointmentNote}
-              </p>
-
-              <div className="rounded-xl border border-bronze/10 overflow-hidden">
-              <iframe
-                title="Ourivesaria Rinchoa - Street View"
-                src="https://www.google.com/maps/embed?pb=!4v1773858868343!6m8!1m7!1scfpncxQ9hEjq-biBDVo7Kw!2m2!1d38.7869887864636!2d-9.322224050056239!3f100.79303157452686!4f-9.101469032479969!5f2.1088444537067614"
-                className="w-full h-56 sm:h-64 md:h-72"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+          <div className="flex items-center">
+            <div className="rounded-xl border border-bronze/10 bg-white/90 px-5 py-6 text-center w-full">
+              <h3 className="text-lg font-semibold text-slate-900">Contactos e loja</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Morada, horários e mapa com Street View.</p>
+              <Link to="/contactos" className="cta-button mt-4 inline-block">
+                Ver contactos
+              </Link>
             </div>
-            </div>
-
-            <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
-              <h3 className="text-lg font-semibold text-slate-900">Contactos diretos</h3>
-              <ul className="mt-4 space-y-3 text-sm text-slate-600">
-                {siteContent.contacts.methods.map((item) => (
-                  <li key={item.href}>
-                    <a className="transition hover:text-forest" href={item.href}>
-                      <span className="font-semibold text-slate-900">{item.label}</span>: {item.value}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
-              <h3 className="text-lg font-semibold text-slate-900">Horário</h3>
-              <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                {siteContent.contacts.hours.map((item) => (
-                  <li key={item.label}>
-                    <span className="font-semibold text-slate-900">{item.label}</span>: {item.value}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            
           </div>
         </div>
       </div>

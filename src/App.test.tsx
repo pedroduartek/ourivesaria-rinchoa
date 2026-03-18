@@ -2,16 +2,14 @@ import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
 import { renderApp } from './test/renderApp'
+import { siteContent } from './content/siteContent'
 
 describe('Ourivesaria Rinchoa SPA', () => {
   it('mostra a proposta principal na página inicial', () => {
     renderApp()
 
-    expect(
-      screen.getByRole('heading', {
-        name: /joalharia sofisticada, reparação e manutenção rigorosa e acompanhamento humano/i,
-      }),
-    ).toBeInTheDocument()
+    // Assert the main hero heading contains the configured site title
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(siteContent.home.hero.title)
 
     expect(screen.getByRole('link', { name: /ver serviços de casamento/i })).toHaveAttribute(
       'href',

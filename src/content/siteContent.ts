@@ -112,8 +112,8 @@ export const siteContent = {
       eyebrow: 'Ourivesaria familiar em Sintra',
       title: 'Joalharia sofisticada, reparação e manutenção rigorosa e acompanhamento humano para momentos especiais.',
       description:
-        'Criámos um espaço luminoso, elegante e próximo para quem procura confiança presencial. Na Ourivesaria Rinchoa, cada visita é pensada para transformar curiosidade em relação duradoura com a loja.',
-      primaryAction: { label: 'Marcar visita', href: '#contactos' } satisfies HeroAction,
+        'Criámos um espaço luminoso e acolhedor — da montra ao interior, cada detalhe convida à visita. Venha ver as peças ao vivo, conversar sobre reparação e manutenção de relógios e marcar uma visita personalizada na loja.',
+      primaryAction: { label: 'Marcar visita', href: '/contactos' } satisfies HeroAction,
       secondaryAction: { label: 'Ver serviços de casamento', to: '/casamentos' } satisfies HeroAction,
       stats: [
         { value: '25+', label: 'anos a acompanhar clientes da zona' },
@@ -127,16 +127,16 @@ export const siteContent = {
         title: 'Receção cuidada e apresentação refinada de peças',
         description:
           'A experiência começa no espaço: tons claros, acabamentos metalizados e atendimento sem pressa para explicar cada detalhe.',
-        imageSrc: '/images/carousel-atelier.svg',
-        alt: 'Interior elegante da ourivesaria com vitrinas e exposição cuidada.',
+        imageSrc: '/images/repair_bench.jpg',
+        alt: 'Banco de trabalho com ferramentas e peça em reparação.',
       },
       {
         kicker: 'Relojoaria',
         title: 'Limpeza profunda e reparação e manutenção de relógios com precisão',
         description:
           'Avaliamos cada mecanismo, caixa e bracelete para devolver brilho, presença e confiança ao uso diário ou cerimonial.',
-        imageSrc: '/images/carousel-watch.svg',
-        alt: 'Relógio clássico em destaque sobre superfície metalizada.',
+        imageSrc: '/images/watch_being_repared.jpg',
+        alt: 'Relógio a ser reparado no banco de trabalho.',
       },
       {
         kicker: 'Casamentos',
@@ -248,16 +248,16 @@ export const siteContent = {
         title: 'Superfície opaca e bracelete sem definição',
         description:
           'Acumulação de resíduos, desgaste visual e falta de contraste nas linhas da caixa comprometiam a leitura e a elegância.',
-        imageSrc: '/images/restauro-before.svg',
-        alt: 'Relógio clássico antes da limpeza com aspeto opaco e marcas de uso.',
+        imageSrc: '/images/big_watch_to_repare.jpg',
+        alt: 'Relógio antes da intervenção, com sinais de uso.',
       },
       {
         stage: 'Depois',
         title: 'Brilho recuperado e detalhes visuais novamente legíveis',
         description:
           'Após limpeza e polimento controlado, a peça recupera profundidade, reflexo e uma presença muito mais cuidada.',
-        imageSrc: '/images/restauro-after.svg',
-        alt: 'Relógio clássico depois da limpeza com brilho recuperado e mostrador nítido.',
+        imageSrc: '/images/repaired_watch.jpg',
+        alt: 'Relógio após intervenção, com brilho recuperado.',
       },
     ] satisfies BeforeAfterItem[],
     highlights: {

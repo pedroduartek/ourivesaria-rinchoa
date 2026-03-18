@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { Carousel } from '../components/Carousel'
-import { ContactPanel } from '../components/ContactPanel'
 import { SectionHeading } from '../components/SectionHeading'
 import { siteContent } from '../content/siteContent'
 import { usePageMeta } from '../hooks/usePageMeta'
@@ -21,11 +20,19 @@ export function HomePage() {
             <h1 className="mt-5 text-balance text-5xl text-slate-900 sm:text-6xl lg:text-[4.4rem] lg:leading-[1.02]">
               {home.hero.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              {home.hero.description}
-            </p>
+            <figure className="mt-6 mb-2 w-full overflow-hidden rounded-lg sm:mt-8 lg:mt-6">
+              <img
+                src="/images/store_front.png"
+                alt="Montra e entrada da Ourivesaria Rinchoa"
+                loading="lazy"
+                className="w-full rounded-lg object-cover"
+              />
+              <figcaption className="mt-2 text-sm text-slate-600">
+                Montra e entrada — venha visitar-nos para ver peças ao vivo e atendimento personalizado.
+              </figcaption>
+            </figure>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap gap-3 sm:mt-8">
               <a className="cta-button" href={home.hero.primaryAction.href}>
                 {home.hero.primaryAction.label}
               </a>
@@ -33,7 +40,6 @@ export function HomePage() {
                 {home.hero.secondaryAction.label}
               </Link>
             </div>
-
             <dl className="mt-10 grid gap-4 sm:grid-cols-3">
               {home.hero.stats.map((item) => (
                 <div key={item.label} className="rounded-lg border border-bronze/10 bg-white/75 px-4 py-5">
@@ -44,7 +50,9 @@ export function HomePage() {
             </dl>
           </div>
 
-          <Carousel slides={home.carouselSlides} />
+          <div className="space-y-6">
+            <Carousel slides={home.carouselSlides} />
+          </div>
         </div>
       </section>
 
@@ -109,12 +117,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <ContactPanel
-        id="contactos"
-        eyebrow="Contactos e loja"
-        title="A melhor próxima ação é simples: visitar, telefonar ou enviar mensagem."
-        description="Toda a presença digital foi construída para aproximar o cliente da loja física. Se procura aconselhamento, uma avaliação ou um atendimento reservado, estamos preparados para receber."
-      />
+      {/* Contact info moved to a dedicated page: /contactos */}
     </div>
   )
 }
