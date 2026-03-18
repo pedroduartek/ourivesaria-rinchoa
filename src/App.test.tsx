@@ -48,11 +48,17 @@ describe('Ourivesaria Rinchoa SPA', () => {
   it('não apresenta violações de acessibilidade na página inicial', async () => {
     const { container } = renderApp()
 
+    // Remove cross-origin iframes (e.g. Google Maps) before axe runs
+    container.querySelectorAll('iframe').forEach((f) => f.remove())
+
     expect(await axe(container)).toHaveNoViolations()
   })
 
   it('não apresenta violações de acessibilidade na página de casamentos', async () => {
     const { container } = renderApp(['/casamentos'])
+
+    // Remove cross-origin iframes (e.g. Google Maps) before axe runs
+    container.querySelectorAll('iframe').forEach((f) => f.remove())
 
     expect(await axe(container)).toHaveNoViolations()
   })

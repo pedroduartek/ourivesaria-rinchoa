@@ -38,6 +38,18 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {siteContent.contacts.appointmentNote}
               </p>
+
+              <div className="rounded-xl border border-bronze/10 overflow-hidden">
+              <iframe
+                title="Ourivesaria Rinchoa - Street View"
+                src="https://www.google.com/maps/embed?pb=!4v1773858868343!6m8!1m7!1scfpncxQ9hEjq-biBDVo7Kw!2m2!1d38.7869887864636!2d-9.322224050056239!3f100.79303157452686!4f-9.101469032479969!5f2.1088444537067614"
+                className="w-full h-56 sm:h-64 md:h-72"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
             </div>
 
             <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
@@ -63,6 +75,8 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
                 ))}
               </ul>
             </div>
+
+            
           </div>
         </div>
       </div>
