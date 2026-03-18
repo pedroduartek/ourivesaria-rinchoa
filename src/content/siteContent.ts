@@ -70,8 +70,8 @@ const whatsapp: ContactMethod = {
 const email: ContactMethod = {
   label: 'Email',
   shortLabel: 'Enviar email',
-  value: 'atelier@ourivesariarinchoa.pt',
-  href: 'mailto:atelier@ourivesariarinchoa.pt',
+  value: 'geral@ourivesariarinchoa.pt',
+  href: 'mailto:geral@ourivesariarinchoa.pt',
 }
 
 export const siteContent = {
