@@ -112,3 +112,25 @@
     @apply inline-flex items-center justify-center rounded-md border border-bronze/15 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-bronze/25 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
   }
 }
+
+/* Strong overrides to prevent browser forced dark mode from altering visuals */
+html,
+body,
+.section-shell,
+.panel,
+header,
+.panel * {
+  background-image: none !important;
+  background-color: #fffefb !important;
+  color: #27332d !important;
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
+}
+
+/* Prevent automatic image inversion/filters applied by some browsers' force-dark features */
+img,
+picture,
+svg {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
