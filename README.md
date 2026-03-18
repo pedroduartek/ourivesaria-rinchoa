@@ -1,4 +1,3 @@
-as
 # Ourivesaria Rinchoa
 
 A simple, deploy-ready Single Page Application for Ourivesaria Rinchoa.
