@@ -51,11 +51,11 @@ export function Carousel({ slides }: CarouselProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-light">
+          <p className="hidden sm:block text-xs font-semibold uppercase tracking-[0.3em] text-gold-light">
             {activeSlide.kicker}
           </p>
-          <h2 className="mt-3 text-3xl text-white sm:text-4xl">{activeSlide.title}</h2>
-          <p className="mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:text-base">
+          <h2 className="mt-3 text-2xl text-white sm:text-4xl">{activeSlide.title}</h2>
+          <p className="hidden sm:block mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:text-base">
             {activeSlide.description}
           </p>
         </div>
