@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <div className="space-y-24">
       <section className="section-shell">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="panel px-6 py-8 sm:px-8 sm:py-10">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
               {home.hero.eyebrow}
@@ -25,7 +25,7 @@ export function HomePage() {
                 src="/images/store_front.png"
                 alt="Montra e entrada da Ourivesaria Rinchoa"
                 loading="lazy"
-                className="w-full rounded-lg object-cover"
+                className="w-full rounded-lg object-cover max-h-[320px] sm:max-h-[420px] md:max-h-[520px]"
               />
               <figcaption className="mt-2 text-sm text-slate-600">
                 Montra e entrada — venha visitar-nos para ver peças ao vivo e atendimento personalizado.
