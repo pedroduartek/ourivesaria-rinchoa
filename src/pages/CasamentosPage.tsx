@@ -35,7 +35,7 @@ export function CasamentosPage() {
 
           <div className="overflow-hidden rounded-xl border border-bronze/10 bg-slate-900">
             <img
-              className="h-full min-h-[320px] w-full object-cover object-center"
+              className="w-full object-cover object-center aspect-[3/2] min-h-[200px]"
               src="/images/gravacao_aliancas.jpg"
               alt="Alianças em caixa decorativa para cerimónia."
             />

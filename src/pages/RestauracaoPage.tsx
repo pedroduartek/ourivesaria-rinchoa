@@ -56,7 +56,7 @@ export function RestauracaoPage() {
           {restoration.beforeAfter.map((item) => (
             <article key={item.stage} className="panel overflow-hidden p-5">
               <div className="overflow-hidden rounded-xl bg-slate-950">
-                <img className="h-[320px] w-full object-cover object-center" src={item.imageSrc} alt={item.alt} />
+                <img className="w-full object-cover object-center aspect-[3/2] sm:aspect-[4/3]" src={item.imageSrc} alt={item.alt} />
               </div>
               <p className="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
                 {item.stage}

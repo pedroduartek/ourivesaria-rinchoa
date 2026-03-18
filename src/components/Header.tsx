@@ -15,7 +15,7 @@ export function Header() {
 
   return (
     <header className="section-shell">
-      <div className="panel sticky top-4 z-40 mt-4 px-4 py-0 sm:px-6 h-28">
+          <div className="panel sticky top-4 z-40 mt-4 px-4 py-3 sm:px-6">
         <div className="flex items-center justify-between gap-4">
           <Link aria-label="Abrir página inicial" to="/" className="min-w-0" onClick={closeMenu}>
             <BrandMark />

@@ -45,7 +45,7 @@ export function Carousel({ slides }: CarouselProps) {
     >
       <div className="relative overflow-hidden rounded-xl bg-slate-900">
         <img
-          className="h-[340px] w-full object-cover object-center sm:h-[420px]"
+          className="w-full object-cover object-center aspect-[16/9] sm:aspect-[4/3]"
           src={activeSlide.imageSrc}
           alt={activeSlide.alt}
         />
