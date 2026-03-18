@@ -32,20 +32,18 @@ export function Header() {
           </button>
 
           <nav className="hidden items-center gap-2 lg:flex" aria-label="Navegação principal">
-            {siteContent.navigation
-              .filter((item) => item.path !== '/')
-              .map((item) => (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                    `${linkBaseClass} ${isActive ? 'bg-forest text-white' : 'text-slate-700'}`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
+            {siteContent.navigation.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `${linkBaseClass} ${isActive ? 'bg-forest text-white' : 'text-slate-700'}`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
             <Link to="/contactos" className="cta-button ml-2" onClick={closeMenu}>
               Contactos
             </Link>
@@ -58,20 +56,18 @@ export function Header() {
             aria-label="Navegação móvel"
             className="mt-4 grid gap-2 rounded-lg border border-white/70 bg-white/75 p-3 lg:hidden"
           >
-            {siteContent.navigation
-              .filter((item) => item.path !== '/')
-              .map((item) => (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                    `${linkBaseClass} ${isActive ? 'bg-forest text-white' : 'bg-transparent text-slate-700'}`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
+            {siteContent.navigation.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `${linkBaseClass} ${isActive ? 'bg-forest text-white' : 'bg-transparent text-slate-700'}`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
             <Link className="cta-button mt-2 justify-center" to="/contactos" onClick={closeMenu}>
               Contactos
             </Link>
