@@ -14,7 +14,7 @@ export function NotFoundPage() {
         <h1 className="mt-5 text-5xl text-slate-900 sm:text-6xl">Página não encontrada</h1>
         <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
           O conteúdo pedido não está disponível. Volte à página principal para conhecer a loja, os
-          serviços de restauro e a área de casamentos.
+          serviços de reparação e manutenção e a área de casamentos.
         </p>
         <Link className="cta-button mt-8" to="/">
           Voltar ao início

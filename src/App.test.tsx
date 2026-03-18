@@ -9,7 +9,7 @@ describe('Ourivesaria Rinchoa SPA', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /joalharia sofisticada, restauro rigoroso e acompanhamento humano/i,
+        name: /joalharia sofisticada, reparação e manutenção rigorosa e acompanhamento humano/i,
       }),
     ).toBeInTheDocument()
 
@@ -25,7 +25,7 @@ describe('Ourivesaria Rinchoa SPA', () => {
 
     const primaryNavigation = screen.getByRole('navigation', { name: /navegação principal/i })
 
-    await user.click(within(primaryNavigation).getByRole('link', { name: /restauro de relógios/i }))
+    await user.click(within(primaryNavigation).getByRole('link', { name: /reparação e manutenção de relógios/i }))
 
     expect(
       await screen.findByRole('heading', {
@@ -42,7 +42,7 @@ describe('Ourivesaria Rinchoa SPA', () => {
 
     await user.click(screen.getByRole('button', { name: /slide seguinte/i }))
 
-    expect(screen.getByRole('heading', { name: /limpeza profunda e restauro de relógios/i })).toBeVisible()
+    expect(screen.getByRole('heading', { name: /limpeza profunda e reparação e manutenção de relógios/i })).toBeVisible()
   })
 
   it('não apresenta violações de acessibilidade na página inicial', async () => {

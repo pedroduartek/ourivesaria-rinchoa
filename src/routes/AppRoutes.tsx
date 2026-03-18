@@ -10,7 +10,7 @@ export function AppRoutes() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/restauro-relogios" element={<RestauracaoPage />} />
+        <Route path="/reparacao-manutencao-relogios" element={<RestauracaoPage />} />
         <Route path="/casamentos" element={<CasamentosPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

@@ -82,7 +82,7 @@ export const siteContent = {
   },
   navigation: [
     { label: 'Início', path: '/' },
-    { label: 'Restauro de Relógios', path: '/restauro-relogios' },
+    { label: 'Reparação e manutenção de relógios', path: '/reparacao-manutencao-relogios' },
     { label: 'Casamentos', path: '/casamentos' },
   ] satisfies NavigationItem[],
   contacts: {
@@ -104,13 +104,13 @@ export const siteContent = {
   },
   home: {
     meta: {
-      title: 'Ourivesaria Rinchoa | Joalharia, alianças e restauro em Sintra',
+      title: 'Ourivesaria Rinchoa | Joalharia, alianças e reparação e manutenção em Sintra',
       description:
-        'Atelier de joalharia e relojoaria com atendimento presencial, restauro de relógios, serviço de casamentos e foco em receber clientes na loja.',
+        'Atelier de joalharia e relojoaria com atendimento presencial, reparação e manutenção de relógios, serviço de casamentos e foco em receber clientes na loja.',
     },
     hero: {
       eyebrow: 'Ourivesaria familiar em Sintra',
-      title: 'Joalharia sofisticada, restauro rigoroso e acompanhamento humano para momentos especiais.',
+      title: 'Joalharia sofisticada, reparação e manutenção rigorosa e acompanhamento humano para momentos especiais.',
       description:
         'Criámos um espaço luminoso, elegante e próximo para quem procura confiança presencial. Na Ourivesaria Rinchoa, cada visita é pensada para transformar curiosidade em relação duradoura com a loja.',
       primaryAction: { label: 'Marcar visita', href: '#contactos' } satisfies HeroAction,
@@ -132,7 +132,7 @@ export const siteContent = {
       },
       {
         kicker: 'Relojoaria',
-        title: 'Limpeza profunda e restauro de relógios com precisão',
+        title: 'Limpeza profunda e reparação e manutenção de relógios com precisão',
         description:
           'Avaliamos cada mecanismo, caixa e bracelete para devolver brilho, presença e confiança ao uso diário ou cerimonial.',
         imageSrc: '/images/carousel-watch.svg',
@@ -155,7 +155,7 @@ export const siteContent = {
           'O site foi desenhado para apresentar a loja, explicar os serviços e tornar simples o contacto direto por telefone, WhatsApp ou visita presencial.',
         items: [
           {
-            title: 'Restauro de relógios',
+            title: 'Reparação e manutenção de relógios',
             description:
               'Limpeza, polimento, revisão estética e aconselhamento para preservar peças pessoais ou de família.',
             accent: 'Antes e depois documentado',
@@ -230,12 +230,12 @@ export const siteContent = {
   },
   restoration: {
     meta: {
-      title: 'Restauro de Relógios | Ourivesaria Rinchoa',
+      title: 'Reparação e manutenção de relógios | Ourivesaria Rinchoa',
       description:
-        'Página dedicada à limpeza e ao restauro de relógios com comparação antes e depois, processo explicado e foco em visita presencial.',
+        'Página dedicada à limpeza, reparação e manutenção de relógios com comparação antes e depois, processo explicado e foco em visita presencial.',
     },
     hero: {
-      eyebrow: 'Limpeza e restauro',
+      eyebrow: 'Limpeza, reparação e manutenção',
       title: 'Relógios com nova presença, sem perder a história da peça.',
       description:
         'Trabalhamos limpeza estética, recuperação de brilho e aconselhamento sobre conservação. O objetivo não é mascarar o tempo, mas devolver clareza, leitura e confiança ao relógio.',
