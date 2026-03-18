@@ -15,6 +15,39 @@
   --font-body: 'Manrope', sans-serif;
 }
 
+/* Force light mode regardless of user/OS preference */
+:root {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Re-assert light color variables and backgrounds when device is in dark mode */
+  :root {
+    --color-ivory: #fffaf3;
+    --color-champagne: #feefdb;
+    --color-gold: #d8b45d;
+    --color-gold-light: #f0d79b;
+    --color-gold-deep: #b88d2e;
+    --color-silver: #d9dee6;
+    --color-forest: #385541;
+    --color-bronze: #715c40;
+    --color-stone: #d0ccc1;
+  }
+
+  html,
+  body {
+    background: linear-gradient(180deg, #fffefb 0%, #f6f1e8 46%, #fffefb 100%) !important;
+    color: #27332d !important;
+  }
+
+  /* Panels and common components should retain light backgrounds */
+  .panel,
+  .panel * {
+    background-color: transparent !important;
+    color-scheme: light !important;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
