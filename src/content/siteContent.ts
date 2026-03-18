@@ -56,15 +56,15 @@ interface BeforeAfterItem {
 const phone: ContactMethod = {
   label: 'Telefone',
   shortLabel: 'Ligar agora',
-  value: '+351 214 321 980',
-  href: 'tel:+351214321980',
+  value: '+351 219 164 630',
+  href: 'tel:+351219164630',
 }
 
 const whatsapp: ContactMethod = {
   label: 'WhatsApp',
   shortLabel: 'Falar por WhatsApp',
-  value: '+351 915 240 880',
-  href: 'https://wa.me/351915240880',
+  value: '+351 910 707 091',
+  href: 'https://wa.me/351910707091',
 }
 
 const email: ContactMethod = {
@@ -91,11 +91,11 @@ export const siteContent = {
     email,
     address: {
       label: 'Morada',
-      value: 'Avenida Dom Afonso Henriques 38, Rinchoa, Rio de Mouro',
+      value: 'Calçada da Rinchoa 28, Rinchoa, Rio de Mouro',
     },
     hours: [
-      { label: 'Segunda a Sexta', value: '10h00 às 19h00' },
-      { label: 'Sábado', value: '10h00 às 13h00' },
+      { label: 'Segunda a Sexta', value: '09h00 às 13h00 e das 15h00 às 19h00' },
+      { label: 'Sábado', value: '09h00 às 13h00' },
       { label: 'Atendimento por marcação', value: 'Noivas, alianças e avaliações de relógios' },
     ] satisfies HourItem[],
     appointmentNote:
