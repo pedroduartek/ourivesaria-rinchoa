@@ -58,6 +58,23 @@
     @apply inline-flex items-center justify-center rounded-md bg-forest px-5 py-3 text-sm font-semibold text-white transition hover:bg-forest/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
   }
 
+  /* Contactos-specific override: only change background color for that button */
+  .contactos-cta {
+    background-color: #865E26;
+  }
+
+  /* Header links: white background, forest outline, green text (opposite of CTA) */
+  .header-button {
+    @apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold transition-colors;
+    background-color: #ffffff;
+    color: var(--color-forest);
+    border: 1px solid var(--color-forest);
+  }
+
+  .header-button:hover {
+    background-color: rgba(56,85,65,0.04);
+  }
+
   .secondary-button {
     @apply inline-flex items-center justify-center rounded-md border border-bronze/15 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-bronze/25 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
   }
