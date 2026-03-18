@@ -110,9 +110,9 @@ export const siteContent = {
     },
     hero: {
       eyebrow: 'Ourivesaria familiar em Sintra',
-      title: 'Joalharia sofisticada, reparação e manutenção rigorosa e acompanhamento humano para momentos especiais.',
+      title: 'Visite-nos na Rinchoa perto da estação de Rio de Mouro',
       description:
-        'Criámos um espaço luminoso e acolhedor — da montra ao interior, cada detalhe convida à visita. Venha ver as peças ao vivo, conversar sobre reparação e manutenção de relógios e marcar uma visita personalizada na loja.',
+        'Estamos à sua espera!',
       primaryAction: { label: 'Marcar visita', href: '/contactos' } satisfies HeroAction,
       secondaryAction: { label: 'Ver serviços de casamento', to: '/casamentos' } satisfies HeroAction,
       stats: [
