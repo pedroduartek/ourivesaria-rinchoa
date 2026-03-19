@@ -1,6 +1,7 @@
 import { ActionLink } from '../components/ActionLink'
 import PageSEO from '../components/seo/PageSEO'
 import { getResponsiveImage } from '../content/imageManifest'
+import { siteConfig } from '../content/siteConfig'
 import { siteContent } from '../content/siteContent'
 
 export function ContactosPage() {
@@ -68,46 +69,44 @@ export function ContactosPage() {
                 </ul>
               </div>
 
-              <div className="rounded-[1.5rem] border border-bronze/10 overflow-hidden shadow-[0_18px_40px_rgba(39,51,45,0.05)]">
-                  {(() => {
-                    const image = getResponsiveImage('/images/store_front.webp')
+              <div className="rounded-[1.5rem] border border-bronze/10 overflow-hidden shadow-[0_18px_40px_rgba(39,51,45,0.05)] h-[16.8rem] sm:h-[21.6rem] lg:h-[28.8rem] xl:col-span-2">
+                {(() => {
+                  const image = getResponsiveImage('/images/store_front.webp')
 
-                    return (
-                      <div className="relative bg-slate-950">
-                        <img
-                          className="w-full object-cover object-[center_61%] h-56 sm:h-72 lg:h-[24rem]"
-                          src={image.src}
-                          srcSet={image.srcSet}
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          alt={contactPage.visitCard.title}
-                          width={image.width}
-                          height={image.height}
-                          loading="lazy"
-                          decoding="async"
-                        />
+                  return (
+                    <div className="relative h-full bg-slate-950">
+                      <img
+                        className="absolute inset-0 w-full h-full object-cover object-[center_60%]"
+                        src={image.src}
+                        srcSet={image.srcSet}
+                        sizes="(max-width: 1024px) 100vw, 100vw"
+                        alt={contactPage.visitCard.title}
+                        width={image.width}
+                        height={image.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
 
-                        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                          <h2 className="text-xl text-white">{contactPage.visitCard.title}</h2>
-                          <p className="mt-3 text-sm text-slate-200 max-w-xl">{contactPage.visitCard.description}</p>
-                          <p className="mt-2 text-sm text-slate-200 max-w-xl">{contactPage.visitCard.note}</p>
-                        </div>
+                      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                        <h2 className="text-xl text-gold">{contactPage.visitCard.title}</h2>
+                        <p className="mt-3 text-sm text-slate-200 max-w-xl">
+                          <a
+                            className="transition hover:underline"
+                            href={siteConfig.business.address.mapsLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Abrir ${contactPage.visitCard.description} no Google Maps`}
+                          >
+                            {contactPage.visitCard.description}
+                          </a>
+                        </p>
+                        <p className="mt-2 text-sm text-slate-200 max-w-xl">{contactPage.visitCard.note}</p>
                       </div>
-                    )
-                  })()}
-                </div>
-
-              <div className="overflow-hidden rounded-[1.5rem] border border-bronze/10 bg-white/88 shadow-[0_18px_40px_rgba(39,51,45,0.04)]">
-                <iframe
-                  title={contactPage.map.title}
-                  src={contactPage.map.embedSrc}
-                  className="h-64 w-full sm:h-72 lg:h-[26rem]"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                    </div>
+                  )
+                })()}
               </div>
             </div>
           </div>

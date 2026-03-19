@@ -39,7 +39,7 @@ export function BrandMark({ priority = false }: BrandMarkProps) {
           {siteContent.brand.tagline}
         </p>
         {siteContent.brand.since ? (
-          <p className="mt-1 text-[0.65rem] text-slate-600 sm:text-[0.72rem]">
+          <p className="mt-1 text-[0.65rem] text-forest sm:text-[0.72rem]">
             {siteContent.brand.since}
           </p>
         ) : null}

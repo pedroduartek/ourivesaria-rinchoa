@@ -23,6 +23,10 @@ export const siteConfig = {
       region: 'Sintra',
       country: 'PT',
       display: 'Calçada da Rinchoa 28, Rinchoa, Rio de Mouro',
+      // Link that works on desktop and prefers the native maps app on mobile when available
+      mapsLink: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+        'Calçada da Rinchoa 28, Rinchoa, Rio de Mouro'
+      )}`,
     },
     openingHours: [
       {

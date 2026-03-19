@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { siteContent } from '../content/siteContent'
+import { siteConfig } from '../content/siteConfig'
 import { BrandMark } from './BrandMark'
 
 export function Footer() {
@@ -16,7 +17,15 @@ export function Footer() {
               {siteContent.contacts.address.label}
             </p>
             <p className="mt-2 text-sm leading-7 text-slate-600">
-              {siteContent.contacts.address.value}
+              <a
+                className="transition hover:text-forest"
+                href={siteConfig.business.address.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir ${siteContent.contacts.address.value} no Google Maps`}
+              >
+                {siteContent.contacts.address.value}
+              </a>
             </p>
           </div>
 
@@ -56,10 +65,6 @@ export function Footer() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div className="mt-8 border-t border-bronze/10 pt-6 text-sm text-slate-500">
-          {siteContent.footer.legal}
         </div>
       </div>
     </footer>

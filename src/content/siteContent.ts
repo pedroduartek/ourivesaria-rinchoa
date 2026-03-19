@@ -592,6 +592,5 @@ export const siteContent = {
     contactsTitle: 'Contactos',
     description:
       'Joalharia, alianças e relojoaria com atendimento presencial na Rinchoa desde junho de 1998.',
-    legal: 'Ourivesaria Rinchoa · Calçada da Rinchoa 28 · Rio de Mouro',
   },
 } as const
