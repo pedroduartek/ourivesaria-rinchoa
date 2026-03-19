@@ -46,6 +46,7 @@ export function Carousel({ slides, fullBleed = false }: CarouselProps) {
   }
 
   const activeSlide = slides[activeIndex]
+  const isStoreFrontSlide = activeSlide.imageSrc === '/images/store_front.webp'
 
   return (
     <section
@@ -71,7 +72,9 @@ export function Carousel({ slides, fullBleed = false }: CarouselProps) {
         <img
           className={
             fullBleed
-              ? 'h-[44vh] min-h-[360px] w-full object-cover object-center sm:h-[52vh] lg:h-[64vh]'
+              ? `h-[44vh] min-h-[360px] w-full object-cover ${
+                  isStoreFrontSlide ? 'object-[center_61%]' : 'object-center'
+                } sm:h-[52vh] lg:h-[64vh]`
               : 'w-full object-cover object-center aspect-[16/9] sm:aspect-[4/3]'
           }
           src={activeSlide.imageSrc}
