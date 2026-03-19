@@ -28,7 +28,7 @@ export function BrandMark({ priority = false }: BrandMarkProps) {
         />
       </div>
 
-      <div className="hidden min-[460px]:block min-w-0">
+      <div className="hidden min-[460px]:block min-w-0 text-center">
         <p
           className="text-xl leading-none text-forest sm:text-2xl md:text-[2rem]"
           style={{ fontFamily: 'var(--font-brand)' }}
@@ -38,6 +38,11 @@ export function BrandMark({ priority = false }: BrandMarkProps) {
         <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-[0.26em] text-bronze/75 sm:text-[0.72rem]">
           {siteContent.brand.tagline}
         </p>
+        {siteContent.brand.since ? (
+          <p className="mt-1 text-[0.65rem] text-slate-600 sm:text-[0.72rem]">
+            {siteContent.brand.since}
+          </p>
+        ) : null}
       </div>
     </div>
   )

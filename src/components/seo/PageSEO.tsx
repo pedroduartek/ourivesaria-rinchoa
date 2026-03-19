@@ -137,6 +137,7 @@ export default function PageSEO({ meta }: PageSEOProps) {
         siteConfig.canonicalOrigin,
       ).href,
       description: meta.description,
+      foundingDate: siteConfig.business.foundingDate,
       telephone: siteConfig.business.telephone,
       email: siteConfig.business.email,
       address: {

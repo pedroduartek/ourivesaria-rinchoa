@@ -128,6 +128,9 @@ describe('Ourivesaria Rinchoa SPA', () => {
       expect(document.querySelector('script[data-seo="local-business"]')).toHaveTextContent(
         'Ourivesaria Rinchoa',
       )
+      expect(document.querySelector('script[data-seo="local-business"]')).toHaveTextContent(
+        '"foundingDate":"1998-06-01"',
+      )
     })
   })
 

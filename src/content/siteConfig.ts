@@ -9,6 +9,8 @@ export const siteConfig = {
   business: {
     name: 'Ourivesaria Rinchoa',
     type: 'JewelryStore',
+    foundingDate: '1998-06-01',
+    foundingLabel: 'Desde junho de 1998',
     telephone: '+351 219 164 630',
     telephoneHref: 'tel:+351219164630',
     whatsapp: '+351 910 707 091',

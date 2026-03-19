@@ -104,6 +104,7 @@ export const siteContent = {
     shortName: siteConfig.shortName,
     tagline: siteConfig.tagline,
     logoSrc: '/images/rinchoa_logo.webp',
+    since: 'Desde 1998',
   },
   navigation: [
     { label: 'Início', path: '/' },
@@ -137,16 +138,16 @@ export const siteContent = {
   home: {
     meta: {
       title: 'Ourivesaria Rinchoa | Joalharia, alianças e relojoaria na Rinchoa',
-        description:
-          'Ourivesaria Rinchoa — loja física na Rinchoa para joalharia, alianças, gravações e reparação de relógios com atendimento personalizado.',
+      description:
+        'Ourivesaria Rinchoa — loja física na Rinchoa, aberta desde junho de 1998, para joalharia, alianças, gravações e reparação de relógios com atendimento personalizado.',
       path: '/',
       image: '/images/social-share.webp',
     } satisfies SeoMeta,
     hero: {
-      eyebrow: 'Loja física na Rinchoa',
+      eyebrow: siteConfig.business.foundingLabel,
       title: 'Ourivesaria Rinchoa — Joalharia, alianças e relojoaria com atendimento em loja',
       description:
-        'Na Ourivesaria Rinchoa encontra aconselhamento direto, seleção de peças e serviço de relojoaria para quem valoriza atenção ao detalhe.',
+        'Desde junho de 1998, a Ourivesaria Rinchoa recebe clientes com aconselhamento direto, seleção de peças e serviço de relojoaria para quem valoriza atenção ao detalhe.',
       featureImage: {
         src: '/images/repair_bench.webp',
         alt: 'Banco de trabalho com ferramentas e peça em reparação.',
@@ -164,7 +165,7 @@ export const siteContent = {
         to: '/casamentos',
       } satisfies LinkAction,
       stats: [
-        { value: 'Loja física', label: 'atendimento presencial na Rinchoa' },
+        { value: '25+ anos', label: 'loja aberta na Rinchoa desde junho de 1998' },
         { value: 'Por marcação', label: 'alianças, avaliações e atendimento dedicado' },
         { value: 'WhatsApp', label: 'contacto rápido para dúvidas e visitas' },
       ] satisfies HeroStat[],
@@ -590,7 +591,7 @@ export const siteContent = {
     navigationTitle: 'Navegação',
     contactsTitle: 'Contactos',
     description:
-      'Joalharia, alianças e relojoaria com atendimento presencial na Rinchoa.',
+      'Joalharia, alianças e relojoaria com atendimento presencial na Rinchoa desde junho de 1998.',
     legal: 'Ourivesaria Rinchoa · Calçada da Rinchoa 28 · Rio de Mouro',
   },
 } as const

@@ -34,16 +34,20 @@ export function ContactosPage() {
             </div>
 
             <div className="mt-10 grid gap-6 xl:grid-cols-2">
-              <div className="rounded-[1.5rem] border border-bronze/10 bg-gradient-to-br from-white via-white to-champagne px-5 py-5 shadow-[0_18px_40px_rgba(39,51,45,0.05)]">
+              <div className="rounded-[1.5rem] border border-bronze/10 bg-white/88 px-5 py-5 shadow-[0_18px_40px_rgba(39,51,45,0.04)]">
                 <h2 className="text-xl text-slate-900">
-                  {contactPage.visitCard.title}
+                  {contactPage.hoursTitle}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {contactPage.visitCard.description}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {contactPage.visitCard.note}
-                </p>
+                <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                  {contacts.hours.map((item) => (
+                    <li key={item.label}>
+                      <span className="font-semibold text-slate-900">
+                        {item.label}
+                      </span>
+                      : {item.value}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="rounded-[1.5rem] border border-bronze/10 bg-white/88 px-5 py-5 shadow-[0_18px_40px_rgba(39,51,45,0.04)]">
@@ -64,21 +68,35 @@ export function ContactosPage() {
                 </ul>
               </div>
 
-              <div className="rounded-[1.5rem] border border-bronze/10 bg-white/88 px-5 py-5 shadow-[0_18px_40px_rgba(39,51,45,0.04)]">
-                <h2 className="text-xl text-slate-900">
-                  {contactPage.hoursTitle}
-                </h2>
-                <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
-                  {contacts.hours.map((item) => (
-                    <li key={item.label}>
-                      <span className="font-semibold text-slate-900">
-                        {item.label}
-                      </span>
-                      : {item.value}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <div className="rounded-[1.5rem] border border-bronze/10 overflow-hidden shadow-[0_18px_40px_rgba(39,51,45,0.05)]">
+                  {(() => {
+                    const image = getResponsiveImage('/images/store_front.webp')
+
+                    return (
+                      <div className="relative bg-slate-950">
+                        <img
+                          className="w-full object-cover object-[center_61%] h-56 sm:h-72 lg:h-[24rem]"
+                          src={image.src}
+                          srcSet={image.srcSet}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          alt={contactPage.visitCard.title}
+                          width={image.width}
+                          height={image.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+
+                        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                          <h2 className="text-xl text-white">{contactPage.visitCard.title}</h2>
+                          <p className="mt-3 text-sm text-slate-200 max-w-xl">{contactPage.visitCard.description}</p>
+                          <p className="mt-2 text-sm text-slate-200 max-w-xl">{contactPage.visitCard.note}</p>
+                        </div>
+                      </div>
+                    )
+                  })()}
+                </div>
 
               <div className="overflow-hidden rounded-[1.5rem] border border-bronze/10 bg-white/88 shadow-[0_18px_40px_rgba(39,51,45,0.04)]">
                 <iframe
