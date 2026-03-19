@@ -8,9 +8,28 @@ interface CarouselProps {
 export function Carousel({ slides }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
-    if (slides.length <= 1 || isPaused) {
+    if (typeof window.matchMedia !== 'function') {
+      return undefined
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updatePreference = () => {
+      setPrefersReducedMotion(mediaQuery.matches)
+    }
+
+    updatePreference()
+    mediaQuery.addEventListener('change', updatePreference)
+
+    return () => {
+      mediaQuery.removeEventListener('change', updatePreference)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (slides.length <= 1 || isPaused || prefersReducedMotion) {
       return undefined
     }
 
@@ -19,7 +38,11 @@ export function Carousel({ slides }: CarouselProps) {
     }, 6000)
 
     return () => window.clearInterval(intervalId)
-  }, [isPaused, slides.length])
+  }, [isPaused, prefersReducedMotion, slides.length])
+
+  if (slides.length === 0) {
+    return null
+  }
 
   const activeSlide = slides[activeIndex]
 
@@ -48,6 +71,8 @@ export function Carousel({ slides }: CarouselProps) {
           className="w-full object-cover object-center aspect-[16/9] sm:aspect-[4/3]"
           src={activeSlide.imageSrc}
           alt={activeSlide.alt}
+          fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
+          loading={activeIndex === 0 ? 'eager' : 'lazy'}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
@@ -62,7 +87,7 @@ export function Carousel({ slides }: CarouselProps) {
       </div>
 
       <div className="mt-5 flex items-center justify-between gap-4">
-        <div className="flex gap-2" role="tablist" aria-label="Selecionar destaque">
+        <div className="flex gap-2" aria-label="Selecionar destaque">
           {slides.map((slide, index) => {
             const isActive = index === activeIndex
 
@@ -70,8 +95,7 @@ export function Carousel({ slides }: CarouselProps) {
               <button
                 key={slide.title}
                 type="button"
-                role="tab"
-                aria-selected={isActive}
+                aria-pressed={isActive}
                 aria-label={`Mostrar destaque ${index + 1}: ${slide.title}`}
                 className={`h-3 rounded-full transition ${
                   isActive ? 'w-10 bg-forest' : 'w-3 bg-stone'
@@ -94,4 +118,3 @@ export function Carousel({ slides }: CarouselProps) {
     </section>
   )
 }
-

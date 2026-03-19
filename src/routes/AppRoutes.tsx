@@ -1,10 +1,31 @@
+import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { MainLayout } from '../layouts/MainLayout'
-import { CasamentosPage } from '../pages/CasamentosPage'
-import { HomePage } from '../pages/HomePage'
-import { NotFoundPage } from '../pages/NotFoundPage'
-import { RestauracaoPage } from '../pages/RestauracaoPage'
-import { ContactosPage } from '../pages/ContactosPage'
+
+const HomePage = lazy(async () => {
+  const module = await import('../pages/HomePage')
+  return { default: module.HomePage }
+})
+
+const RestauracaoPage = lazy(async () => {
+  const module = await import('../pages/RestauracaoPage')
+  return { default: module.RestauracaoPage }
+})
+
+const ContactosPage = lazy(async () => {
+  const module = await import('../pages/ContactosPage')
+  return { default: module.ContactosPage }
+})
+
+const CasamentosPage = lazy(async () => {
+  const module = await import('../pages/CasamentosPage')
+  return { default: module.CasamentosPage }
+})
+
+const NotFoundPage = lazy(async () => {
+  const module = await import('../pages/NotFoundPage')
+  return { default: module.NotFoundPage }
+})
 
 export function AppRoutes() {
   return (
@@ -19,4 +40,3 @@ export function AppRoutes() {
     </Routes>
   )
 }
-

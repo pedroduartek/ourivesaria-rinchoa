@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { siteContent } from '../content/siteContent'
+import { ActionLink } from './ActionLink'
 
 interface ContactPanelProps {
   id?: string
@@ -21,12 +21,22 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">{description}</p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a className="cta-button" href={siteContent.contacts.whatsapp.href}>
-                {siteContent.contacts.whatsapp.shortLabel}
-              </a>
-              <a className="secondary-button" href={siteContent.contacts.phone.href}>
-                {siteContent.contacts.phone.shortLabel}
-              </a>
+              <ActionLink
+                action={{
+                  type: 'external',
+                  label: siteContent.contacts.whatsapp.shortLabel,
+                  href: siteContent.contacts.whatsapp.href,
+                }}
+                className="cta-button"
+              />
+              <ActionLink
+                action={{
+                  type: 'external',
+                  label: siteContent.contacts.phone.shortLabel,
+                  href: siteContent.contacts.phone.href,
+                }}
+                className="secondary-button"
+              />
             </div>
           </div>
 
@@ -34,9 +44,12 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
             <div className="rounded-xl border border-bronze/10 bg-white/90 px-5 py-6 text-center w-full">
               <h3 className="text-lg font-semibold text-slate-900">Contactos e loja</h3>
               <p className="mt-2 text-sm leading-6 text-slate-600">Morada, horários e mapa com Street View.</p>
-              <Link to="/contactos" className="cta-button mt-4 inline-block">
+              <ActionLink
+                action={siteContent.navigationAction}
+                className="cta-button mt-4 inline-block"
+              >
                 Ver contactos
-              </Link>
+              </ActionLink>
             </div>
           </div>
         </div>
@@ -44,4 +57,3 @@ export function ContactPanel({ id, eyebrow, title, description }: ContactPanelPr
     </section>
   )
 }
-

@@ -5,9 +5,10 @@ export function BrandMark() {
     <div className="flex items-center gap-4">
       <div className="overflow-hidden flex items-center">
         <img
-          src="/images/rinchoa_logo.png"
+          src={siteContent.brand.logoSrc}
           alt={siteContent.brand.name}
-          loading="lazy"
+          fetchPriority="high"
+          loading="eager"
           onError={(e) => {
             ;(e.target as HTMLImageElement).style.display = 'none'
           }}

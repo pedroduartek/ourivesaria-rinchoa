@@ -1,6 +1,9 @@
+import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
+import { AppErrorBoundary } from '../components/AppErrorBoundary'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { RouteLoading } from '../components/RouteLoading'
 import { ScrollToTop } from '../components/ScrollToTop'
 
 export function MainLayout() {
@@ -21,11 +24,14 @@ export function MainLayout() {
       <Header />
 
       <main id="conteudo-principal" className="pb-16 pt-6 sm:pt-8">
-        <Outlet />
+        <AppErrorBoundary>
+          <Suspense fallback={<RouteLoading />}>
+            <Outlet />
+          </Suspense>
+        </AppErrorBoundary>
       </main>
 
       <Footer />
     </div>
   )
 }
-

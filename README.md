@@ -1,36 +1,51 @@
 # Ourivesaria Rinchoa
 
-A simple, deploy-ready Single Page Application for Ourivesaria Rinchoa.
+Institutional website for Ourivesaria Rinchoa, built as a React 19 + TypeScript SPA with Vite and Tailwind CSS.
 
-Overview
-- React + TypeScript SPA built with Vite and Tailwind CSS.
-- Centralized content in `src/content/siteContent.ts` used across the app.
+## Highlights
 
-Tech stack
-- React 19, TypeScript
-- Vite, Tailwind CSS
-- Vitest + Testing Library for tests
+- Route-based SPA for home, watch restoration, weddings, contacts, and 404 handling.
+- Centralized content in `src/content/siteContent.ts` and site-wide SEO/business config in `src/content/siteConfig.ts`.
+- Route-level SEO metadata with canonical URLs, Open Graph, Twitter cards, and `LocalBusiness` JSON-LD.
+- Optimized WebP image delivery for the public-facing experience, with raw source assets stored in `assets/source-images/`.
+- Automated checks for linting, type safety, tests, coverage, bundle size, and Lighthouse.
 
-Useful scripts
-- `npm run dev` — start dev server
-- `npm run build` — create production build (output: `dist`)
-- `npm run preview` — preview production build locally
-- `npm run lint` — run ESLint
-- `npm test` — run tests (Vitest)
+## Scripts
 
-Deployment (Vercel)
-- The project includes `vercel.json` configured to use `dist` as the build output directory.
-- Recommended: connect this GitHub repository to Vercel for automatic deploys on push.
-- Manual deploy with Vercel CLI:
-  1. `npm run build`
-  2. `vercel --prod`
+- `npm run dev` starts the local dev server.
+- `npm run lint` runs ESLint.
+- `npm run typecheck` runs `tsc --noEmit`.
+- `npm run check` runs linting and type-checking together.
+- `npm test` runs the Vitest suite.
+- `npm run test:coverage` runs tests with V8 coverage output.
+- `npm run build` creates the production bundle in `dist/`.
+- `npm run preview` previews the production bundle locally.
+- `npm run size` checks built JS and CSS bundle budgets.
+- `npm run images:optimize` regenerates optimized public WebP assets.
 
-Notes
-- `dist` and `node_modules` are ignored by default; continuous integration or the hosting platform should build the project.
-- See `agents.md` for repository maintenance rules. Do not force-push `master` unless explicitly agreed by the maintainers.
+## Deployment
 
-Contact
-- Pedro Duarte — pedroduartek@gmail.com
+`vercel.json` is configured for the static Vite build output in `dist`.
 
-License
-- MIT
+Typical deploy flow:
+
+1. `npm ci`
+2. `npm run images:optimize`
+3. `npm run check`
+4. `npm run test:coverage`
+5. `npm run build`
+6. Deploy `dist` through Vercel
+
+## Quality Baseline
+
+The repository includes GitHub Actions for:
+
+- CI checks
+- dependency audit
+- coverage generation
+- bundle size budget checks
+- Lighthouse desktop and mobile runs
+
+## License
+
+MIT

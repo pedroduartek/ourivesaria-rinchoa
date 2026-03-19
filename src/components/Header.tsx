@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { siteContent } from '../content/siteContent'
+import { ActionLink } from './ActionLink'
 import { BrandMark } from './BrandMark'
 
 const linkBaseClass = 'header-button'
@@ -31,9 +32,11 @@ export function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/contactos" className="cta-button contactos-cta" onClick={closeMenu}>
-              Contactos
-            </Link>
+            <ActionLink
+              action={siteContent.navigationAction}
+              className="cta-button contactos-cta"
+              onClick={closeMenu}
+            />
           </nav>
 
           <button
@@ -63,9 +66,11 @@ export function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <Link className="cta-button contactos-cta justify-center" to="/contactos" onClick={closeMenu}>
-              Contactos
-            </Link>
+            <ActionLink
+              action={siteContent.navigationAction}
+              className="cta-button contactos-cta justify-center"
+              onClick={closeMenu}
+            />
           </nav>
         ) : null}
       </div>

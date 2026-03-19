@@ -1,11 +1,14 @@
 node_modules
 dist
+.firebase/
 .DS_Store
 *.log
 .env
 .env.local
 .env.*.local
 coverage
+audit.json
+.lighthouseci/
+.lhci/
 .vscode/settings.json
 *.tsbuildinfo
-AGENTS.md

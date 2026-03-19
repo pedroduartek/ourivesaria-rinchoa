@@ -13,22 +13,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
+
+      - name: Optimize images
+        run: npm run images:optimize
 
       - name: Build project
-        run: pnpm -r build
+        run: npm run build
 
       - name: Run Lighthouse CI (Desktop)
         uses: treosh/lighthouse-ci-action@v11
@@ -44,22 +42,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
+
+      - name: Optimize images
+        run: npm run images:optimize
 
       - name: Build project
-        run: pnpm -r build
+        run: npm run build
 
       - name: Run Lighthouse CI (Mobile)
         uses: treosh/lighthouse-ci-action@v11

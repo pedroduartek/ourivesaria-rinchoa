@@ -1,3 +1,30 @@
+import { siteConfig } from './siteConfig'
+
+export interface SeoMeta {
+  title: string
+  description: string
+  path: string
+  image?: string
+  noindex?: boolean
+}
+
+export type LinkAction =
+  | {
+      type: 'route'
+      label: string
+      to: string
+    }
+  | {
+      type: 'external'
+      label: string
+      href: string
+    }
+  | {
+      type: 'anchor'
+      label: string
+      href: string
+    }
+
 export interface CarouselSlide {
   kicker: string
   title: string
@@ -16,17 +43,6 @@ interface ContactMethod {
   shortLabel: string
   value: string
   href: string
-}
-
-interface HourItem {
-  label: string
-  value: string
-}
-
-interface HeroAction {
-  label: string
-  href?: string
-  to?: string
 }
 
 interface HeroStat {
@@ -53,68 +69,97 @@ interface BeforeAfterItem {
   alt: string
 }
 
+interface GalleryItem {
+  src: string
+  alt: string
+}
+
 const phone: ContactMethod = {
   label: 'Telefone',
   shortLabel: 'Ligar agora',
-  value: '+351 219 164 630',
-  href: 'tel:+351219164630',
+  value: siteConfig.business.telephone,
+  href: siteConfig.business.telephoneHref,
 }
 
 const whatsapp: ContactMethod = {
   label: 'WhatsApp',
   shortLabel: 'Falar por WhatsApp',
-  value: '+351 910 707 091',
-  href: 'https://wa.me/351910707091',
+  value: siteConfig.business.whatsapp,
+  href: siteConfig.business.whatsappHref,
 }
 
 const email: ContactMethod = {
   label: 'Email',
   shortLabel: 'Enviar email',
-  value: 'geral@ourivesariarinchoa.pt',
-  href: 'mailto:geral@ourivesariarinchoa.pt',
+  value: siteConfig.business.email,
+  href: siteConfig.business.emailHref,
 }
 
 export const siteContent = {
   brand: {
-    name: 'Ourivesaria Rinchoa',
-    shortName: 'Rinchoa',
-    tagline: 'Joalharia e relógios',
+    name: siteConfig.siteName,
+    shortName: siteConfig.shortName,
+    tagline: siteConfig.tagline,
+    logoSrc: '/images/rinchoa_logo.webp',
   },
   navigation: [
     { label: 'Início', path: '/' },
-    { label: 'Reparação e manutenção de relógios', path: '/reparacao-manutencao-relogios' },
+    {
+      label: 'Reparação e manutenção de relógios',
+      path: '/reparacao-manutencao-relogios',
+    },
     { label: 'Casamentos', path: '/casamentos' },
   ] satisfies NavigationItem[],
+  navigationAction: {
+    type: 'route',
+    label: 'Contactos',
+    to: '/contactos',
+  } satisfies LinkAction,
   contacts: {
     phone,
     whatsapp,
     email,
     address: {
       label: 'Morada',
-      value: 'Calçada da Rinchoa 28, Rinchoa, Rio de Mouro',
+      value: siteConfig.business.address.display,
     },
-    hours: [
-      { label: 'Segunda a Sexta', value: '09h00 às 13h00 e das 15h00 às 19h00' },
-      { label: 'Sábado', value: '09h00 às 13h00' },
-      { label: 'Atendimento por marcação', value: 'Noivas, alianças e avaliações de relógios' },
-    ] satisfies HourItem[],
+    hours: siteConfig.business.openingHours.map(({ label, value }) => ({
+      label,
+      value,
+    })),
     appointmentNote:
       'Recebemos clientes na loja física para aconselhamento, provas e entregas com toda a discrição.',
     methods: [phone, whatsapp, email] satisfies ContactMethod[],
   },
   home: {
     meta: {
-      title: 'Ourivesaria Rinchoa | Joalharia, alianças e reparação e manutenção em Sintra',
+      title: 'Ourivesaria Rinchoa | Joalharia, alianças e relojoaria em Sintra',
       description:
         'Atelier de joalharia e relojoaria com atendimento presencial, reparação e manutenção de relógios, serviço de casamentos e foco em receber clientes na loja.',
-    },
+      path: '/',
+      image: '/images/social-share.webp',
+    } satisfies SeoMeta,
     hero: {
       eyebrow: 'Ourivesaria familiar em Sintra',
       title: 'Visite-nos na Rinchoa perto da estação de Rio de Mouro',
       description:
-        'Estamos à sua espera!',
-      primaryAction: { label: 'Marcar visita', href: '/contactos' } satisfies HeroAction,
-      secondaryAction: { label: 'Ver serviços de casamento', to: '/casamentos' } satisfies HeroAction,
+        'Estamos à sua espera para apresentar peças, serviços e aconselhamento com atendimento presencial dedicado.',
+      featureImage: {
+        src: '/images/store_front.webp',
+        alt: 'Montra e entrada da Ourivesaria Rinchoa.',
+        caption:
+          'Montra e entrada da loja para atendimento personalizado e visita presencial.',
+      },
+      primaryAction: {
+        type: 'route',
+        label: 'Marcar visita',
+        to: '/contactos',
+      } satisfies LinkAction,
+      secondaryAction: {
+        type: 'route',
+        label: 'Ver serviços de casamento',
+        to: '/casamentos',
+      } satisfies LinkAction,
       stats: [
         { value: '25+', label: 'anos a acompanhar clientes da zona' },
         { value: '1 atelier', label: 'com atendimento presencial e discreto' },
@@ -127,7 +172,7 @@ export const siteContent = {
         title: 'Receção cuidada e apresentação refinada de peças',
         description:
           'A experiência começa no espaço: tons claros, acabamentos metalizados e atendimento sem pressa para explicar cada detalhe.',
-        imageSrc: '/images/repair_bench.jpg',
+        imageSrc: '/images/repair_bench.webp',
         alt: 'Banco de trabalho com ferramentas e peça em reparação.',
       },
       {
@@ -135,7 +180,7 @@ export const siteContent = {
         title: 'Limpeza profunda e reparação e manutenção de relógios com precisão',
         description:
           'Avaliamos cada mecanismo, caixa e bracelete para devolver brilho, presença e confiança ao uso diário ou cerimonial.',
-        imageSrc: '/images/watch_being_repared.jpg',
+        imageSrc: '/images/watch_being_repared.webp',
         alt: 'Relógio a ser reparado no banco de trabalho.',
       },
       {
@@ -143,14 +188,15 @@ export const siteContent = {
         title: 'Acompanhamento sereno para alianças e joias de cerimónia',
         description:
           'Marcamos visitas dedicadas para casais que procuram atenção ao estilo, ao conforto e à personalização.',
-        imageSrc: '/images/aliancas.jpg',
+        imageSrc: '/images/aliancas.webp',
         alt: 'Conjunto de alianças e joias de cerimónia sobre fundo claro.',
       },
     ] satisfies CarouselSlide[],
     sections: {
       services: {
         eyebrow: 'Serviços principais',
-        title: 'Uma presença oficial, sem e-commerce, focada em visita, confiança e continuidade.',
+        title:
+          'Uma presença oficial, sem e-commerce, focada em visita, confiança e continuidade.',
         description:
           'O site foi desenhado para apresentar a loja, explicar os serviços e tornar simples o contacto direto por telefone, WhatsApp ou visita presencial.',
         items: [
@@ -182,7 +228,8 @@ export const siteContent = {
       },
       reasons: {
         eyebrow: 'Porque visitar a loja',
-        title: 'Mais do que mostrar peças: o objetivo é receber clientes com calma, critério e transparência.',
+        title:
+          'Mais do que mostrar peças: o objetivo é receber clientes com calma, critério e transparência.',
         description:
           'A comunicação, o ambiente e a estrutura do site foram desenhados para converter interesse em visita à loja física.',
         items: [
@@ -205,7 +252,8 @@ export const siteContent = {
       },
       process: {
         eyebrow: 'Como trabalhamos',
-        title: 'Do primeiro contacto até à entrega, o processo mantém-se simples e transparente.',
+        title:
+          'Do primeiro contacto até à entrega, o processo mantém-se simples e transparente.',
         description:
           'Organizámos o atendimento para que cada cliente perceba rapidamente o que esperar em loja.',
         items: [
@@ -233,14 +281,35 @@ export const siteContent = {
       title: 'Reparação e manutenção de relógios | Ourivesaria Rinchoa',
       description:
         'Página dedicada à limpeza, reparação e manutenção de relógios com comparação antes e depois, processo explicado e foco em visita presencial.',
-    },
+      path: '/reparacao-manutencao-relogios',
+      image: '/images/repaired_watch.webp',
+    } satisfies SeoMeta,
     hero: {
       eyebrow: 'Limpeza, reparação e manutenção',
       title: 'Relógios com nova presença, sem perder a história da peça.',
       description:
         'Trabalhamos limpeza estética, recuperação de brilho e aconselhamento sobre conservação. O objetivo não é mascarar o tempo, mas devolver clareza, leitura e confiança ao relógio.',
-      primaryAction: { label: 'Agendar avaliação', href: '#contactos' } satisfies HeroAction,
-      secondaryAction: { label: 'Falar connosco', href: whatsapp.href } satisfies HeroAction,
+      primaryAction: {
+        type: 'anchor',
+        label: 'Agendar avaliação',
+        href: '#contactos',
+      } satisfies LinkAction,
+      secondaryAction: {
+        type: 'external',
+        label: 'Falar connosco',
+        href: whatsapp.href,
+      } satisfies LinkAction,
+      resultCard: {
+        eyebrow: 'Resultado visível',
+        description:
+          'Mostramos com clareza como uma intervenção estética bem calibrada devolve leitura, brilho e presença ao relógio sem desrespeitar a identidade da peça.',
+      },
+    },
+    comparison: {
+      eyebrow: 'Antes e depois',
+      title: 'Comparação direta para explicar o valor do serviço.',
+      description:
+        'A página de transformação existe para ajudar o cliente a perceber, visualmente, o ganho de clareza e elegância após a limpeza e o restauro.',
     },
     beforeAfter: [
       {
@@ -248,7 +317,7 @@ export const siteContent = {
         title: 'Superfície opaca e bracelete sem definição',
         description:
           'Acumulação de resíduos, desgaste visual e falta de contraste nas linhas da caixa comprometiam a leitura e a elegância.',
-        imageSrc: '/images/big_watch_to_repare.jpg',
+        imageSrc: '/images/big_watch_to_repare.webp',
         alt: 'Relógio antes da intervenção, com sinais de uso.',
       },
       {
@@ -256,7 +325,7 @@ export const siteContent = {
         title: 'Brilho recuperado e detalhes visuais novamente legíveis',
         description:
           'Após limpeza e polimento controlado, a peça recupera profundidade, reflexo e uma presença muito mais cuidada.',
-        imageSrc: '/images/repaired_watch.jpg',
+        imageSrc: '/images/repaired_watch.webp',
         alt: 'Relógio após intervenção, com brilho recuperado.',
       },
     ] satisfies BeforeAfterItem[],
@@ -283,6 +352,12 @@ export const siteContent = {
         },
       ] satisfies StepItem[],
     },
+    processSection: {
+      eyebrow: 'Processo de atendimento',
+      title: 'Explicação clara antes de qualquer avanço.',
+      description:
+        'Cada relógio chega com uma história diferente, por isso mantemos um processo curto, legível e sempre validado com o cliente.',
+    },
     process: [
       {
         title: 'Receção e triagem',
@@ -300,20 +375,41 @@ export const siteContent = {
           'Mostramos o resultado final presencialmente para confirmar brilho, proporção e satisfação.',
       },
     ] satisfies StepItem[],
+    contactPanel: {
+      eyebrow: 'Agendar avaliação',
+      title: 'Traga o relógio à loja e avaliamos a melhor intervenção.',
+      description:
+        'O serviço foi pensado para começar presencialmente: analisamos o estado da peça, explicamos limites e definimos o caminho com total transparência.',
+    },
   },
   weddings: {
     meta: {
       title: 'Casamentos | Ourivesaria Rinchoa',
       description:
         'Serviço de casamentos com acompanhamento para alianças, gravações e joias de cerimónia, sempre com foco em visita à loja.',
-    },
+      path: '/casamentos',
+      image: '/images/gravacao_aliancas.webp',
+    } satisfies SeoMeta,
     hero: {
       eyebrow: 'Serviço para noivos',
-      title: 'Um espaço calmo para escolher alianças e joias de cerimónia com tempo e critério.',
+      title:
+        'Um espaço calmo para escolher alianças e joias de cerimónia com tempo e critério.',
       description:
         'Recebemos casais em contexto reservado para alinhar estilo, conforto, gravações e prazos. O foco está no acompanhamento humano e não numa compra apressada.',
-      primaryAction: { label: 'Marcar visita para noivos', href: '#contactos' } satisfies HeroAction,
-      secondaryAction: { label: 'Ligar para a loja', href: phone.href } satisfies HeroAction,
+      image: {
+        src: '/images/gravacao_aliancas.webp',
+        alt: 'Alianças em caixa decorativa para cerimónia.',
+      },
+      primaryAction: {
+        type: 'anchor',
+        label: 'Marcar visita para noivos',
+        href: '#contactos',
+      } satisfies LinkAction,
+      secondaryAction: {
+        type: 'external',
+        label: 'Ligar para a loja',
+        href: phone.href,
+      } satisfies LinkAction,
     },
     offerings: {
       eyebrow: 'Acompanhamento dedicado',
@@ -369,6 +465,12 @@ export const siteContent = {
         },
       ] satisfies StepItem[],
     },
+    guidanceSection: {
+      eyebrow: 'Orientação em loja',
+      title: 'Acompanhamento pensado para reduzir indecisão e aumentar conforto.',
+      description:
+        'Cada visita é organizada para dar espaço à conversa, à prova e à decisão com tempo.',
+    },
     guidance: [
       {
         title: 'Atendimento reservado',
@@ -386,10 +488,100 @@ export const siteContent = {
           'Recomendamos calendarização adequada para garantir provas, ajustes e entrega com margem.',
       },
     ] satisfies StepItem[],
+    contactPanel: {
+      eyebrow: 'Marcação para noivos',
+      title: 'Reserve um atendimento dedicado e escolham com calma.',
+      description:
+        'As decisões de casamento beneficiam de contexto, luz certa e acompanhamento atento. A loja está preparada para receber o casal com tempo, conforto e discrição.',
+    },
+  },
+  contactPage: {
+    meta: {
+      title: 'Contactos | Ourivesaria Rinchoa',
+      description:
+        'Contactos, horários, morada e Street View da Ourivesaria Rinchoa para facilitar a visita à loja.',
+      path: '/contactos',
+      image: '/images/store_front.webp',
+    } satisfies SeoMeta,
+    hero: {
+      title: 'Contactos e loja',
+      description:
+        'Encontre as formas de contacto e informações de visita à nossa loja.',
+      primaryAction: {
+        type: 'external',
+        label: whatsapp.shortLabel,
+        href: whatsapp.href,
+      } satisfies LinkAction,
+      secondaryAction: {
+        type: 'external',
+        label: phone.shortLabel,
+        href: phone.href,
+      } satisfies LinkAction,
+    },
+    visitCard: {
+      title: 'Visita à loja',
+      description: siteConfig.business.address.display,
+      note: 'Recebemos clientes na loja física para aconselhamento, provas e entregas com toda a discrição.',
+    },
+    methodsTitle: 'Contactos diretos',
+    hoursTitle: 'Horário',
+    map: {
+      title: 'Ourivesaria Rinchoa - Street View',
+      embedSrc:
+        'https://www.google.com/maps/embed?pb=!4v1773858868343!6m8!1m7!1scfpncxQ9hEjq-biBDVo7Kw!2m2!1d38.7869887864636!2d-9.322224050056239!3f100.79303157452686!4f-9.101469032479969!5f2.1088444537067614',
+    },
+    gallery: {
+      title: 'Galeria de trabalhos',
+      description:
+        'Alguns exemplos de relógios antes e depois das intervenções.',
+      items: [
+        {
+          src: '/images/repaired_watch.webp',
+          alt: 'Relógio reparado com brilho recuperado.',
+        },
+        {
+          src: '/images/repaired_watch_2.webp',
+          alt: 'Segundo exemplo de relógio reparado.',
+        },
+        {
+          src: '/images/repaired_watch_3.webp',
+          alt: 'Terceiro exemplo de relógio reparado.',
+        },
+        {
+          src: '/images/medium_watch_repaired.webp',
+          alt: 'Relógio reparado com escala média.',
+        },
+        {
+          src: '/images/watch_to_sell.webp',
+          alt: 'Relógio apresentado em estado cuidado.',
+        },
+      ] satisfies GalleryItem[],
+    },
+  },
+  notFound: {
+    meta: {
+      title: 'Página não encontrada | Ourivesaria Rinchoa',
+      description:
+        'A página procurada não foi encontrada. Volte à página inicial da Ourivesaria Rinchoa.',
+      path: '/404',
+      noindex: true,
+    } satisfies SeoMeta,
+    eyebrow: 'Erro 404',
+    title: 'Página não encontrada',
+    description:
+      'O conteúdo pedido não está disponível. Volte à página principal para conhecer a loja, os serviços de reparação e manutenção e a área de casamentos.',
+    action: {
+      type: 'route',
+      label: 'Voltar ao início',
+      to: '/',
+    } satisfies LinkAction,
   },
   footer: {
+    navigationTitle: 'Navegação',
+    contactsTitle: 'Contactos',
     description:
       'Presença institucional criada para apresentar a loja, reforçar credibilidade e incentivar contacto direto com a equipa.',
-    legal: 'Ourivesaria Rinchoa. Atendimento presencial em Rinchoa, Rio de Mouro.',
+    legal:
+      'Ourivesaria Rinchoa. Atendimento presencial em Rinchoa, Rio de Mouro.',
   },
 } as const

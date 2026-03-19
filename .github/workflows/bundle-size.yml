@@ -10,31 +10,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
+
+      - name: Optimize images
+        run: npm run images:optimize
 
       - name: Build project
-        run: pnpm -r build
+        run: npm run build
 
       - name: Check bundle size
-        run: |
-          cd apps/web
-          pnpm size || echo "Size check completed"
+        run: npm run size
 
       - name: Upload bundle stats
         uses: actions/upload-artifact@v4
         with:
           name: bundle-stats
-          path: apps/web/dist/
+          path: dist/
         continue-on-error: true
