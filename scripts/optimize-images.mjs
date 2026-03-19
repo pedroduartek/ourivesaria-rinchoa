@@ -79,6 +79,24 @@ const images = [
     quality: 80,
   },
   {
+    input: 'assets/source-images/watch_mechanism.webp',
+    output: 'public/images/watch_mechanism.webp',
+    widths: [360, 720],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/watch_mechanism_2.webp',
+    output: 'public/images/watch_mechanism_2.webp',
+    widths: [480, 960],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/watch_mechanism_3.webp',
+    output: 'public/images/watch_mechanism_3.webp',
+    widths: [360, 720],
+    quality: 80,
+  },
+  {
     input: 'assets/source-images/watch_to_sell.jpg',
     output: 'public/images/watch_to_sell.webp',
     widths: [360, 720],

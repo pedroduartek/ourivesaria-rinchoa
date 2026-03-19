@@ -59,6 +59,9 @@ interface ServiceCard {
 interface StepItem {
   title: string
   description: string
+  imageSrc?: string
+  alt?: string
+  accent?: string
 }
 
 interface BeforeAfterItem {
@@ -134,14 +137,14 @@ export const siteContent = {
   home: {
     meta: {
       title: 'Ourivesaria Rinchoa | Joalharia, alianças e relojoaria na Rinchoa',
-      description:
-        'Loja física na Rinchoa para joalharia, alianças, gravações e reparação de relógios com atendimento personalizado.',
+        description:
+          'Ourivesaria Rinchoa — loja física na Rinchoa para joalharia, alianças, gravações e reparação de relógios com atendimento personalizado.',
       path: '/',
       image: '/images/social-share.webp',
     } satisfies SeoMeta,
     hero: {
       eyebrow: 'Loja física na Rinchoa',
-      title: 'Joalharia, alianças e relojoaria com atendimento em loja',
+      title: 'Ourivesaria Rinchoa — Joalharia, alianças e relojoaria com atendimento em loja',
       description:
         'Na Ourivesaria Rinchoa encontra aconselhamento direto, seleção de peças e serviço de relojoaria para quem valoriza atenção ao detalhe.',
       featureImage: {
@@ -180,8 +183,8 @@ export const siteContent = {
         title: 'Limpeza e manutenção com avaliação em loja',
         description:
           'Recebemos o relógio, avaliamos o estado e explicamos o serviço recomendado antes de avançar.',
-        imageSrc: '/images/watch_being_repared.webp',
-        alt: 'Relógio a ser reparado no banco de trabalho.',
+        imageSrc: '/images/watch_mechanism_2.webp',
+        alt: 'Detalhe do mecanismo de um relógio durante manutenção.',
       },
       {
         kicker: 'Casamentos',
@@ -298,8 +301,10 @@ export const siteContent = {
       } satisfies LinkAction,
       resultCard: {
         eyebrow: 'Atendimento especializado',
-        description:
-          'Antes de qualquer intervenção, observamos o estado da peça e explicamos o trabalho recomendado.',
+          description:
+            'Antes de qualquer intervenção, observamos o estado da peça e explicamos o trabalho recomendado.',
+          imageSrc: '/images/watch_mechanism.webp',
+          alt: 'Detalhe de mecanismo de relógio durante avaliação.',
       },
     },
     comparison: {
@@ -310,7 +315,7 @@ export const siteContent = {
     },
     beforeAfter: [
       {
-        stage: 'Antes',
+        stage: '',
         title: 'Desgaste visível e menor definição',
         description:
           'A acumulação de marcas e sujidade retirava presença à peça e dificultava a leitura do conjunto.',
@@ -318,7 +323,7 @@ export const siteContent = {
         alt: 'Relógio antes da intervenção, com sinais de uso.',
       },
       {
-        stage: 'Depois',
+        stage: '',
         title: 'Acabamento mais limpo e presença renovada',
         description:
           'Com limpeza e acabamento exterior, o relógio recupera brilho, contraste e melhor apresentação.',
@@ -332,21 +337,28 @@ export const siteContent = {
       description:
         'Cada relógio é observado em loja para perceber o nível de limpeza, acabamento e atenção de que precisa.',
       items: [
-        {
-          title: 'Avaliação inicial',
-          description:
-            'Análise visual de caixa, vidro, bracelete, coroa e sinais de desgaste.',
-        },
-        {
-          title: 'Limpeza e acabamento',
-          description:
-            'Intervenções exteriores pensadas para melhorar apresentação e conforto de uso.',
-        },
-        {
-          title: 'Orientação ao cliente',
-          description:
-            'Indicações práticas de conservação, utilização e manutenção futura.',
-        },
+          {
+            title: 'Avaliação inicial',
+            description:
+              'Análise visual de caixa, vidro, bracelete, coroa e sinais de desgaste.',
+            imageSrc: '/images/watch_mechanism_3.webp',
+            alt: 'Relógio aberto com peça de mecanismo exposta.',
+          },
+          {
+            title: 'Limpeza e acabamento',
+            description:
+              'Intervenções exteriores pensadas para melhorar apresentação e conforto de uso.',
+            accent: 'Acabamento cuidado',
+            imageSrc: '/images/watch_mechanism_2.webp',
+            alt: 'Detalhe de limpeza e polimento de caixa de relógio.',
+          },
+          {
+            title: 'Orientação ao cliente',
+            description:
+              'Indicações práticas de conservação, utilização e manutenção futura.',
+            imageSrc: '/images/repaired_watch_2.webp',
+            alt: 'Relógio reparado de detalhe mostrando o acabamento final.',
+          },
       ] satisfies StepItem[],
     },
     processSection: {
@@ -526,6 +538,8 @@ export const siteContent = {
       embedSrc:
         'https://www.google.com/maps/embed?pb=!4v1773858868343!6m8!1m7!1scfpncxQ9hEjq-biBDVo7Kw!2m2!1d38.7869887864636!2d-9.322224050056239!3f100.79303157452686!4f-9.101469032479969!5f2.1088444537067614',
     },
+          imageSrc: '/images/watch_mechanism_3.webp',
+          alt: 'Relógio aberto com peça de mecanismo exposta.',
     gallery: {
       title: 'Galeria de trabalhos',
       description:

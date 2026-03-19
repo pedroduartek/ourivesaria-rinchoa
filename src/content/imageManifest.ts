@@ -50,6 +50,21 @@ const imageManifest: Record<string, ImageAsset> = {
     height: 960,
     widths: [360, 720],
   },
+  '/images/watch_mechanism.webp': {
+    width: 720,
+    height: 960,
+    widths: [360, 720],
+  },
+  '/images/watch_mechanism_2.webp': {
+    width: 960,
+    height: 720,
+    widths: [480, 960],
+  },
+  '/images/watch_mechanism_3.webp': {
+    width: 720,
+    height: 960,
+    widths: [360, 720],
+  },
   '/images/medium_watch_repaired.webp': {
     width: 1200,
     height: 1952,

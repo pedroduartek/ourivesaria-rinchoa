@@ -62,6 +62,11 @@ export default function PageSEO({ meta }: PageSEOProps) {
       name: 'description',
       content: meta.description,
     })
+    ensureMeta('meta[name="keywords"]', {
+      name: 'keywords',
+      content:
+        'Ourivesaria Rinchoa, ourivesaria rinchoa, joalharia Rinchoa, alianças Rinchoa, relojoaria Rinchoa, Rio de Mouro',
+    })
     ensureMeta('meta[name="robots"]', {
       name: 'robots',
       content: meta.noindex ? 'noindex, nofollow' : 'index, follow',
