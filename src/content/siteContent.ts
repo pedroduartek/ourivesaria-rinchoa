@@ -145,10 +145,10 @@ export const siteContent = {
       description:
         'Na Ourivesaria Rinchoa encontra aconselhamento direto, seleção de peças e serviço de relojoaria para quem valoriza atenção ao detalhe.',
       featureImage: {
-        src: '/images/store_front.webp',
-        alt: 'Montra e entrada da Ourivesaria Rinchoa.',
+        src: '/images/repair_bench.webp',
+        alt: 'Banco de trabalho com ferramentas e peça em reparação.',
         caption:
-          'Loja física na Rinchoa, a poucos minutos de Rio de Mouro.',
+          'Atendimento em loja com apoio na escolha de peças e avaliação de serviços.',
       },
       primaryAction: {
         type: 'route',
@@ -168,12 +168,12 @@ export const siteContent = {
     },
     carouselSlides: [
       {
-        kicker: 'Joalharia',
-        title: 'Peças escolhidas em loja com apresentação cuidada',
+        kicker: 'Loja física',
+        title: 'Ourivesaria na Rinchoa, com atendimento presencial',
         description:
-          'Seleção presencial para oferta, uso diário e ocasiões especiais, com apoio direto na escolha.',
-        imageSrc: '/images/repair_bench.webp',
-        alt: 'Banco de trabalho com ferramentas e peça em reparação.',
+          'Montra, entrada e atendimento em loja para joalharia, alianças, gravações e relojoaria.',
+        imageSrc: '/images/store_front.webp',
+        alt: 'Montra e entrada da Ourivesaria Rinchoa.',
       },
       {
         kicker: 'Relojoaria',

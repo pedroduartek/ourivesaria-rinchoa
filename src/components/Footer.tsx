@@ -4,8 +4,8 @@ import { BrandMark } from './BrandMark'
 
 export function Footer() {
   return (
-    <footer className="section-shell pb-10">
-      <div className="panel px-6 py-8 sm:px-8 sm:py-10">
+    <footer className="border-t border-bronze/10 bg-white/95 shadow-[0_-10px_28px_rgba(39,51,45,0.05)] backdrop-blur-md">
+      <div className="section-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <BrandMark />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -11,8 +11,10 @@
   --color-forest: #385541;
   --color-bronze: #715c40;
   --color-stone: #d0ccc1;
-  --font-display: 'Cormorant Garamond', serif;
+  --font-display: 'Montserrat', sans-serif;
   --font-body: 'Manrope', sans-serif;
+  --font-hero: 'Montserrat', sans-serif;
+  --font-brand: 'Cormorant Garamond', serif;
 }
 
 @layer base {
@@ -37,6 +39,13 @@
     display: block;
   }
 
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
   h1,
   h2,
   h3 {
@@ -52,7 +61,7 @@
 
 @layer components {
   .section-shell {
-    @apply mx-auto w-full max-w-[min(82vw,1720px)] px-2 sm:px-4 lg:px-5;
+    @apply mx-auto w-full max-w-full px-6 sm:px-8 lg:px-12 xl:px-16;
   }
 
   .panel {
@@ -69,7 +78,7 @@
 
   .header-button {
     @apply inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition-colors;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.85);
     color: var(--color-forest);
     border: 1px solid rgba(56, 85, 65, 0.16);
   }
@@ -80,5 +89,19 @@
 
   .secondary-button {
     @apply inline-flex items-center justify-center rounded-full border border-bronze/15 bg-white/88 px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-bronze/30 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
+  }
+
+  .hero-title-modern {
+    font-family: var(--font-hero);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-carousel-button {
+    @apply inline-flex items-center justify-center rounded-sm border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/18 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+  }
+
+  .hero-carousel-button-primary {
+    @apply border-gold/40 bg-gold-deep/75;
   }
 }

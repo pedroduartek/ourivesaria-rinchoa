@@ -14,8 +14,8 @@ export function Header() {
   }
 
   return (
-    <header className="section-shell">
-      <div className="panel sticky top-4 z-40 mt-4 px-5 py-4 sm:px-7 sm:py-5">
+    <header className="sticky top-0 z-50 border-b border-bronze/10 bg-white/95 shadow-[0_10px_28px_rgba(39,51,45,0.08)] backdrop-blur-md">
+      <div className="section-shell px-6 py-3 sm:px-8 sm:py-4 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between gap-6">
           <Link aria-label="Abrir página inicial" to="/" className="min-w-0 flex-1" onClick={closeMenu}>
             <BrandMark />
@@ -54,7 +54,7 @@ export function Header() {
           <nav
             id="menu-principal"
             aria-label="Navegação móvel"
-            className="mt-4 grid gap-2 rounded-[1.4rem] border border-white/80 bg-white/90 p-3 shadow-[0_20px_44px_rgba(39,51,45,0.08)] lg:hidden"
+            className="mt-4 grid gap-2 border-t border-bronze/10 pt-4 lg:hidden"
           >
             {siteContent.navigation.map((item) => (
               <NavLink

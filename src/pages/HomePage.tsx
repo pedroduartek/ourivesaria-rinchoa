@@ -1,5 +1,4 @@
 import { ActionLink } from '../components/ActionLink'
-import { Carousel } from '../components/Carousel'
 import PageSEO from '../components/seo/PageSEO'
 import { SectionHeading } from '../components/SectionHeading'
 import { siteContent } from '../content/siteContent'
@@ -12,57 +11,42 @@ export function HomePage() {
       <PageSEO meta={home.meta} />
       <div className="space-y-24">
         <section className="section-shell">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
-            <div className="panel relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
-                {home.hero.eyebrow}
-              </p>
-              <h1 className="mt-5 text-balance text-5xl text-slate-900 sm:text-6xl lg:text-[4.4rem] lg:leading-[1.02]">
-                {home.hero.title}
-              </h1>
-              <figure className="mb-2 mt-6 w-full overflow-hidden rounded-lg sm:mt-8 lg:mt-6">
-                <img
-                  src={home.hero.featureImage.src}
-                  alt={home.hero.featureImage.alt}
-                  fetchPriority="high"
-                  loading="eager"
-                  className="w-full rounded-lg object-cover max-h-[320px] sm:max-h-[420px] md:max-h-[520px]"
-                />
-                <figcaption className="mt-2 text-sm text-slate-600">
-                  {home.hero.featureImage.caption}
-                </figcaption>
-              </figure>
+          <div className="panel relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
+              {home.hero.eyebrow}
+            </p>
+            <h1 className="hero-title-modern mt-5 w-full max-w-full text-balance text-5xl text-slate-900 sm:text-6xl lg:max-w-2/3 lg:text-[4.4rem] lg:leading-[1.02]">
+              {home.hero.title}
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+              {home.hero.description}
+            </p>
 
-              <div className="mt-4 flex flex-wrap gap-3 sm:mt-8">
-                <ActionLink
-                  action={home.hero.primaryAction}
-                  className="cta-button"
-                />
-                <ActionLink
-                  action={home.hero.secondaryAction}
-                  className="secondary-button"
-                />
-              </div>
-              <dl className="mt-10 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15.5rem),1fr))]">
-                {home.hero.stats.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-[1.3rem] border border-bronze/10 bg-white/80 px-4 py-5 shadow-[0_14px_30px_rgba(39,51,45,0.05)] sm:min-h-[176px]"
-                  >
-                    <dt className="text-balance text-[clamp(1.8rem,4vw,2.45rem)] font-semibold leading-[0.96] text-forest">
-                      {item.value}
-                    </dt>
-                    <dd className="mt-3 max-w-[20ch] text-sm leading-6 text-slate-600">
-                      {item.label}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ActionLink
+                action={home.hero.primaryAction}
+                className="cta-button"
+              />
+              <ActionLink
+                action={home.hero.secondaryAction}
+                className="secondary-button"
+              />
             </div>
-
-            <div className="space-y-6">
-              <Carousel slides={home.carouselSlides} />
-            </div>
+            <dl className="mt-10 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
+              {home.hero.stats.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[1.3rem] border border-bronze/10 bg-white/80 px-4 py-5 shadow-[0_14px_30px_rgba(39,51,45,0.05)] sm:min-h-[176px]"
+                >
+                  <dt className="text-balance text-[clamp(1.8rem,4vw,2.45rem)] font-semibold leading-[0.96] text-forest">
+                    {item.value}
+                  </dt>
+                  <dd className="mt-3 max-w-[20ch] text-sm leading-6 text-slate-600">
+                    {item.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 

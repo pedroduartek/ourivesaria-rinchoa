@@ -65,7 +65,11 @@ describe('Ourivesaria Rinchoa SPA', () => {
       }),
     ).toBeVisible()
 
-    await user.click(screen.getByRole('button', { name: /slide seguinte/i }))
+    await user.click(
+      screen.getByRole('button', {
+        name: new RegExp(`mostrar destaque 2: ${siteContent.home.carouselSlides[1].title}`, 'i'),
+      }),
+    )
 
     expect(
       screen.getByRole('heading', {

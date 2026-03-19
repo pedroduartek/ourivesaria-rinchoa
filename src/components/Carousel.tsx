@@ -3,9 +3,10 @@ import type { CarouselSlide } from '../content/siteContent'
 
 interface CarouselProps {
   slides: CarouselSlide[]
+  fullBleed?: boolean
 }
 
-export function Carousel({ slides }: CarouselProps) {
+export function Carousel({ slides, fullBleed = false }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
@@ -46,19 +47,13 @@ export function Carousel({ slides }: CarouselProps) {
 
   const activeSlide = slides[activeIndex]
 
-  const move = (direction: 'next' | 'previous') => {
-    setActiveIndex((currentIndex) => {
-      if (direction === 'next') {
-        return (currentIndex + 1) % slides.length
-      }
-
-      return (currentIndex - 1 + slides.length) % slides.length
-    })
-  }
-
   return (
     <section
-      className="panel overflow-hidden p-4 sm:p-6"
+      className={
+        fullBleed
+          ? 'relative overflow-hidden bg-slate-950'
+          : 'panel overflow-hidden p-4 sm:p-6'
+      }
       aria-roledescription="carousel"
       aria-label="Destaques da ourivesaria"
       onMouseEnter={() => setIsPaused(true)}
@@ -66,27 +61,71 @@ export function Carousel({ slides }: CarouselProps) {
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <div className="relative overflow-hidden rounded-xl bg-slate-900">
+      <div
+        className={
+          fullBleed
+            ? 'relative overflow-hidden bg-slate-900'
+            : 'relative overflow-hidden rounded-xl bg-slate-900'
+        }
+      >
         <img
-          className="w-full object-cover object-center aspect-[16/9] sm:aspect-[4/3]"
+          className={
+            fullBleed
+              ? 'h-[44vh] min-h-[360px] w-full object-cover object-center sm:h-[52vh] lg:h-[64vh]'
+              : 'w-full object-cover object-center aspect-[16/9] sm:aspect-[4/3]'
+          }
           src={activeSlide.imageSrc}
           alt={activeSlide.alt}
           fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
           loading={activeIndex === 0 ? 'eager' : 'lazy'}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+        <div
+          className={
+            fullBleed
+              ? 'absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/55 to-slate-950/12'
+              : 'absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent'
+          }
+        />
+        <div
+          className={
+            fullBleed
+              ? 'section-shell absolute inset-x-0 bottom-0 flex min-h-full items-end px-4 pb-10 pt-24 sm:px-6 sm:pb-14 lg:px-8 lg:pb-18'
+              : 'absolute inset-x-0 bottom-0 p-6 sm:p-8'
+          }
+        >
+          <div className={fullBleed ? 'max-w-3xl' : ''}>
           <p className="hidden sm:block text-xs font-semibold uppercase tracking-[0.3em] text-gold-light">
             {activeSlide.kicker}
           </p>
-          <h2 className="mt-3 text-2xl text-white sm:text-4xl">{activeSlide.title}</h2>
-          <p className="hidden sm:block mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:text-base">
+          <h2
+            className={
+              fullBleed
+                ? 'mt-4 max-w-[12ch] text-balance text-4xl leading-[0.95] text-white sm:text-5xl lg:text-7xl'
+                : 'mt-3 text-2xl text-white sm:text-4xl'
+            }
+          >
+            {activeSlide.title}
+          </h2>
+          <p
+            className={
+              fullBleed
+                ? 'mt-4 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base lg:text-lg'
+                : 'hidden sm:block mt-3 max-w-xl text-sm leading-7 text-slate-200 sm:text-base'
+            }
+          >
             {activeSlide.description}
           </p>
+          </div>
         </div>
       </div>
 
-      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div
+        className={
+          fullBleed
+            ? 'section-shell absolute inset-x-0 bottom-0 z-10 px-4 pb-4 sm:px-6 sm:pb-6 lg:px-8 lg:pb-8'
+            : 'mt-5'
+        }
+      >
         <div className="flex gap-2" aria-label="Selecionar destaque">
           {slides.map((slide, index) => {
             const isActive = index === activeIndex
@@ -104,15 +143,6 @@ export function Carousel({ slides }: CarouselProps) {
               />
             )
           })}
-        </div>
-
-        <div className="flex w-full gap-2 sm:w-auto">
-          <button type="button" className="secondary-button" onClick={() => move('previous')}>
-            Slide anterior
-          </button>
-          <button type="button" className="cta-button" onClick={() => move('next')}>
-            Slide seguinte
-          </button>
         </div>
       </div>
     </section>
