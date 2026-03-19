@@ -2,6 +2,7 @@ import { ActionLink } from '../components/ActionLink'
 import { ContactPanel } from '../components/ContactPanel'
 import PageSEO from '../components/seo/PageSEO'
 import { SectionHeading } from '../components/SectionHeading'
+import { getResponsiveImage } from '../content/imageManifest'
 import { siteContent } from '../content/siteContent'
 
 export function RestauracaoPage() {
@@ -57,14 +58,25 @@ export function RestauracaoPage() {
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {restoration.beforeAfter.map((item) => (
               <article key={item.stage} className="panel overflow-hidden p-5">
+                {(() => {
+                  const image = getResponsiveImage(item.imageSrc)
+
+                  return (
                 <div className="overflow-hidden rounded-xl bg-slate-950">
                   <img
                     className="aspect-[3/2] w-full object-cover object-center sm:aspect-[4/3]"
-                    src={item.imageSrc}
+                    src={image.src}
+                    srcSet={image.srcSet}
+                    sizes="(max-width: 1024px) calc(100vw - 4rem), 45vw"
                     alt={item.alt}
+                    width={image.width}
+                    height={image.height}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
+                  )
+                })()}
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
                   {item.stage}
                 </p>

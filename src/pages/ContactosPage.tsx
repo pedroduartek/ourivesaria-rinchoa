@@ -1,5 +1,6 @@
 import { ActionLink } from '../components/ActionLink'
 import PageSEO from '../components/seo/PageSEO'
+import { getResponsiveImage } from '../content/imageManifest'
 import { siteContent } from '../content/siteContent'
 
 export function ContactosPage() {
@@ -105,13 +106,24 @@ export function ContactosPage() {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
               {contactPage.gallery.items.map((item) => (
-                <img
-                  key={item.src}
-                  loading="lazy"
-                  src={item.src}
-                  alt={item.alt}
-                  className="aspect-[4/3] w-full rounded-xl object-cover"
-                />
+                (() => {
+                  const image = getResponsiveImage(item.src)
+
+                  return (
+                    <img
+                      key={item.src}
+                      loading="lazy"
+                      decoding="async"
+                      src={image.src}
+                      srcSet={image.srcSet}
+                      sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1280px) calc((100vw - 5rem) / 2), 20vw"
+                      alt={item.alt}
+                      width={image.width}
+                      height={image.height}
+                      className="aspect-[4/3] w-full rounded-xl object-cover"
+                    />
+                  )
+                })()
               ))}
             </div>
           </div>

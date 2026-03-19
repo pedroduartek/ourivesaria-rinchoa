@@ -10,5 +10,6 @@ coverage
 audit.json
 .lighthouseci/
 .lhci/
+.tmp-lh-*.json
 .vscode/settings.json
 *.tsbuildinfo

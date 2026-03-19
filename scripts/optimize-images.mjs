@@ -6,62 +6,110 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
 
 const images = [
-  ['assets/source-images/store_front.png', 'public/images/store_front.webp', 1600],
-  ['assets/source-images/rinchoa_logo.png', 'public/images/rinchoa_logo.webp', 900],
-  ['assets/source-images/aliancas.jpg', 'public/images/aliancas.webp', 1600],
-  [
-    'assets/source-images/gravacao_aliancas.jpg',
-    'public/images/gravacao_aliancas.webp',
-    1600,
-  ],
-  [
-    'assets/source-images/gravacao_aliancas_2.jpg',
-    'public/images/gravacao_aliancas_2.webp',
-    1600,
-  ],
-  [
-    'assets/source-images/big_watch_to_repare.jpg',
-    'public/images/big_watch_to_repare.webp',
-    1400,
-  ],
-  [
-    'assets/source-images/medium_watch_repaired.jpg',
-    'public/images/medium_watch_repaired.webp',
-    1200,
-  ],
-  ['assets/source-images/repair_bench.jpg', 'public/images/repair_bench.webp', 1200],
-  [
-    'assets/source-images/repaired_watch.jpg',
-    'public/images/repaired_watch.webp',
-    1200,
-  ],
-  [
-    'assets/source-images/repaired_watch_2.jpg',
-    'public/images/repaired_watch_2.webp',
-    1200,
-  ],
-  [
-    'assets/source-images/repaired_watch_3.jpg',
-    'public/images/repaired_watch_3.webp',
-    1200,
-  ],
-  [
-    'assets/source-images/watch_being_repared.jpg',
-    'public/images/watch_being_repared.webp',
-    1200,
-  ],
-  ['assets/source-images/watch_to_sell.jpg', 'public/images/watch_to_sell.webp', 1200],
+  {
+    input: 'assets/source-images/store_front.png',
+    output: 'public/images/store_front.webp',
+    widths: [640, 1024, 1600],
+    quality: 76,
+  },
+  {
+    input: 'assets/source-images/rinchoa_logo.png',
+    output: 'public/images/rinchoa_logo.webp',
+    widths: [240, 480, 900],
+    quality: 72,
+  },
+  {
+    input: 'assets/source-images/aliancas.jpg',
+    output: 'public/images/aliancas.webp',
+    widths: [640, 1024, 1600],
+    quality: 78,
+  },
+  {
+    input: 'assets/source-images/gravacao_aliancas.jpg',
+    output: 'public/images/gravacao_aliancas.webp',
+    widths: [640, 1024, 1600],
+    quality: 78,
+  },
+  {
+    input: 'assets/source-images/gravacao_aliancas_2.jpg',
+    output: 'public/images/gravacao_aliancas_2.webp',
+    widths: [800, 1600],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/big_watch_to_repare.jpg',
+    output: 'public/images/big_watch_to_repare.webp',
+    widths: [700, 1400],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/medium_watch_repaired.jpg',
+    output: 'public/images/medium_watch_repaired.webp',
+    widths: [600, 1200],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/repair_bench.jpg',
+    output: 'public/images/repair_bench.webp',
+    widths: [720, 1200],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/repaired_watch.jpg',
+    output: 'public/images/repaired_watch.webp',
+    widths: [360, 720],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/repaired_watch_2.jpg',
+    output: 'public/images/repaired_watch_2.webp',
+    widths: [480, 960],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/repaired_watch_3.jpg',
+    output: 'public/images/repaired_watch_3.webp',
+    widths: [360, 720],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/watch_being_repared.jpg',
+    output: 'public/images/watch_being_repared.webp',
+    widths: [360, 720],
+    quality: 80,
+  },
+  {
+    input: 'assets/source-images/watch_to_sell.jpg',
+    output: 'public/images/watch_to_sell.webp',
+    widths: [360, 720],
+    quality: 80,
+  },
 ]
 
-async function optimizeImage(inputRelativePath, outputRelativePath, width) {
+function getVariantOutputPath(outputPath, width, widths) {
+  const largestWidth = widths[widths.length - 1]
+  if (width === largestWidth) {
+    return outputPath
+  }
+
+  return outputPath.replace(/\.webp$/, `-${width}.webp`)
+}
+
+async function optimizeImage(inputRelativePath, outputRelativePath, widths, quality) {
   const inputPath = path.join(rootDir, inputRelativePath)
   const outputPath = path.join(rootDir, outputRelativePath)
 
-  await sharp(inputPath)
-    .rotate()
-    .resize({ width, withoutEnlargement: true })
-    .webp({ quality: 82 })
-    .toFile(outputPath)
+  await Promise.all(
+    widths.map(async (width) => {
+      const variantOutputPath = getVariantOutputPath(outputPath, width, widths)
+
+      await sharp(inputPath)
+        .rotate()
+        .resize({ width, withoutEnlargement: true })
+        .webp({ quality })
+        .toFile(variantOutputPath)
+    }),
+  )
 
   console.log(`Optimized ${outputRelativePath}`)
 }
@@ -111,5 +159,9 @@ async function createSocialShareImage() {
   console.log('Optimized public/images/social-share.webp')
 }
 
-await Promise.all(images.map((image) => optimizeImage(...image)))
+await Promise.all(
+  images.map((image) =>
+    optimizeImage(image.input, image.output, image.widths, image.quality),
+  ),
+)
 await createSocialShareImage()

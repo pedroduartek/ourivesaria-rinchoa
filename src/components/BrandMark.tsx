@@ -1,14 +1,26 @@
 import { siteContent } from '../content/siteContent'
+import { getResponsiveImage } from '../content/imageManifest'
 
-export function BrandMark() {
+interface BrandMarkProps {
+  priority?: boolean
+}
+
+export function BrandMark({ priority = false }: BrandMarkProps) {
+  const logo = getResponsiveImage(siteContent.brand.logoSrc)
+
   return (
     <div className="flex items-center gap-3 sm:gap-4">
       <div className="overflow-hidden flex items-center">
         <img
-          src={siteContent.brand.logoSrc}
+          src={logo.src}
+          srcSet={logo.srcSet}
+          sizes="(max-width: 640px) 150px, 240px"
           alt={siteContent.brand.name}
-          fetchPriority="high"
-          loading="eager"
+          width={logo.width}
+          height={logo.height}
+          fetchPriority={priority ? 'high' : 'auto'}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding={priority ? 'sync' : 'async'}
           onError={(e) => {
             ;(e.target as HTMLImageElement).style.display = 'none'
           }}

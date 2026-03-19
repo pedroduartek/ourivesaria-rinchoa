@@ -9,6 +9,21 @@
     />
     <meta name="theme-color" content="#feefdb" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      if (window.location.pathname === '/') {
+        const preload = document.createElement('link')
+        preload.rel = 'preload'
+        preload.as = 'image'
+        preload.href = '/images/store_front-1024.webp'
+        preload.setAttribute(
+          'imagesrcset',
+          '/images/store_front-640.webp 640w, /images/store_front-1024.webp 1024w, /images/store_front.webp 1536w',
+        )
+        preload.setAttribute('imagesizes', '100vw')
+        preload.setAttribute('fetchpriority', 'high')
+        document.head.appendChild(preload)
+      }
+    </script>
     <title>Ourivesaria Rinchoa | Joalharia, alianças e relojoaria na Rinchoa</title>
   </head>
   <body>

@@ -2,10 +2,12 @@ import { ActionLink } from '../components/ActionLink'
 import { ContactPanel } from '../components/ContactPanel'
 import PageSEO from '../components/seo/PageSEO'
 import { SectionHeading } from '../components/SectionHeading'
+import { getResponsiveImage } from '../content/imageManifest'
 import { siteContent } from '../content/siteContent'
 
 export function CasamentosPage() {
   const { weddings } = siteContent
+  const heroImage = getResponsiveImage(weddings.hero.image.src)
 
   return (
     <>
@@ -39,10 +41,15 @@ export function CasamentosPage() {
             <div className="overflow-hidden rounded-xl border border-bronze/10 bg-slate-900">
               <img
                 className="aspect-[3/2] min-h-[200px] w-full object-cover object-center"
-                src={weddings.hero.image.src}
+                src={heroImage.src}
+                srcSet={heroImage.srcSet}
+                sizes="(max-width: 1024px) calc(100vw - 4rem), 42vw"
                 alt={weddings.hero.image.alt}
+                width={heroImage.width}
+                height={heroImage.height}
                 fetchPriority="high"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>

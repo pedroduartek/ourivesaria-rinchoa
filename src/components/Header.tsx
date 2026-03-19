@@ -18,7 +18,7 @@ export function Header() {
       <div className="section-shell px-6 py-3 sm:px-8 sm:py-4 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between gap-6">
           <Link aria-label="Abrir página inicial" to="/" className="min-w-0 flex-1" onClick={closeMenu}>
-            <BrandMark />
+            <BrandMark priority />
           </Link>
 
           <nav className="hidden items-center gap-3 lg:flex" aria-label="Navegação principal">

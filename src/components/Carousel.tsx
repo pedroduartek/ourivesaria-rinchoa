@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getResponsiveImage } from '../content/imageManifest'
 import type { CarouselSlide } from '../content/siteContent'
 
 interface CarouselProps {
@@ -47,6 +48,7 @@ export function Carousel({ slides, fullBleed = false }: CarouselProps) {
 
   const activeSlide = slides[activeIndex]
   const isStoreFrontSlide = activeSlide.imageSrc === '/images/store_front.webp'
+  const activeSlideImage = getResponsiveImage(activeSlide.imageSrc)
 
   return (
     <section
@@ -77,10 +79,15 @@ export function Carousel({ slides, fullBleed = false }: CarouselProps) {
                 } sm:h-[52vh] lg:h-[64vh]`
               : 'w-full object-cover object-center aspect-[16/9] sm:aspect-[4/3]'
           }
-          src={activeSlide.imageSrc}
+          src={activeSlideImage.src}
+          srcSet={activeSlideImage.srcSet}
+          sizes={fullBleed ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
           alt={activeSlide.alt}
+          width={activeSlideImage.width}
+          height={activeSlideImage.height}
           fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
           loading={activeIndex === 0 ? 'eager' : 'lazy'}
+          decoding={activeIndex === 0 ? 'sync' : 'async'}
         />
         <div
           className={
