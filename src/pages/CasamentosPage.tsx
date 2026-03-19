@@ -12,7 +12,7 @@ export function CasamentosPage() {
   return (
     <>
       <PageSEO meta={weddings.meta} />
-      <div className="space-y-24">
+      <div className="page-enter space-y-24">
         <section className="section-shell">
           <div className="panel grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
             <div>

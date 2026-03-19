@@ -8,7 +8,7 @@ export function NotFoundPage() {
   return (
     <>
       <PageSEO meta={notFound.meta} />
-      <section className="section-shell">
+      <section className="section-shell page-enter">
         <div className="panel px-6 py-16 text-center sm:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
             {notFound.eyebrow}

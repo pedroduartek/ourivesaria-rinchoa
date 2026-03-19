@@ -9,13 +9,13 @@ export function HomePage() {
   return (
     <>
       <PageSEO meta={home.meta} />
-      <div className="space-y-24">
+      <div className="page-enter space-y-24">
         <section className="section-shell">
           <div className="panel relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
               {home.hero.eyebrow}
             </p>
-            <h1 className="hero-title-modern mt-5 w-full max-w-full text-balance text-5xl text-slate-900 sm:text-6xl lg:max-w-2/3 lg:text-[4.4rem] lg:leading-[1.02]">
+            <h1 className="hero-title-modern mt-5 w-full max-w-full text-balance text-[clamp(2.6rem,11vw,3.7rem)] leading-[0.92] text-slate-900 sm:text-6xl sm:leading-[0.96] lg:max-w-2/3 lg:text-[4.4rem] lg:leading-[1.02]">
               {home.hero.title}
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">

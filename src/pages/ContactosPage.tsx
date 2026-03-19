@@ -9,7 +9,7 @@ export function ContactosPage() {
   return (
     <>
       <PageSEO meta={contactPage.meta} />
-      <div className="space-y-24">
+      <div className="page-enter space-y-24">
         <section className="section-shell">
           <div className="panel px-6 py-8 sm:px-8 sm:py-10">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
