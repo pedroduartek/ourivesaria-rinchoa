@@ -12,7 +12,7 @@ export function BrandMark() {
           onError={(e) => {
             ;(e.target as HTMLImageElement).style.display = 'none'
           }}
-          className="h-14 w-auto max-w-full object-contain sm:h-16 md:h-20 lg:h-24"
+          className="h-20 w-auto max-w-full object-contain sm:h-24 md:h-28 lg:h-32"
         />
       </div>
 
