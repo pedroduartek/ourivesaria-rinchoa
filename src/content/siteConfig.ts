@@ -1,7 +1,7 @@
 export const siteConfig = {
   siteName: 'Ourivesaria Rinchoa',
   shortName: 'Rinchoa',
-  tagline: 'Joalharia e relógios',
+  tagline: 'Joalharia e relojoaria',
   canonicalOrigin: 'https://ourivesariarinchoa.pt',
   locale: 'pt_PT',
   themeColor: '#feefdb',

@@ -58,7 +58,7 @@ export function Carousel({ slides }: CarouselProps) {
 
   return (
     <section
-      className="panel overflow-hidden p-5 sm:p-6"
+      className="panel overflow-hidden p-4 sm:p-6"
       aria-roledescription="carousel"
       aria-label="Destaques da ourivesaria"
       onMouseEnter={() => setIsPaused(true)}
@@ -86,7 +86,7 @@ export function Carousel({ slides }: CarouselProps) {
         </div>
       </div>
 
-      <div className="mt-5 flex items-center justify-between gap-4">
+      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex gap-2" aria-label="Selecionar destaque">
           {slides.map((slide, index) => {
             const isActive = index === activeIndex
@@ -106,7 +106,7 @@ export function Carousel({ slides }: CarouselProps) {
           })}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex w-full gap-2 sm:w-auto">
           <button type="button" className="secondary-button" onClick={() => move('previous')}>
             Slide anterior
           </button>

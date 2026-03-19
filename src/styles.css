@@ -24,12 +24,17 @@
     min-width: 320px;
     background:
       radial-gradient(circle at top left, rgba(216, 180, 93, 0.18), transparent 28%),
-      radial-gradient(circle at 85% 10%, rgba(217, 222, 230, 0.65), transparent 24%),
-      linear-gradient(180deg, #fffefb 0%, #f6f1e8 46%, #fffefb 100%);
+      radial-gradient(circle at 85% 10%, rgba(217, 222, 230, 0.72), transparent 24%),
+      radial-gradient(circle at bottom right, rgba(56, 85, 65, 0.08), transparent 24%),
+      linear-gradient(180deg, #fffefb 0%, #f5efe5 46%, #fffefb 100%);
     color: #27332d;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  img {
+    display: block;
   }
 
   h1,
@@ -47,35 +52,33 @@
 
 @layer components {
   .section-shell {
-    @apply mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8;
   }
 
   .panel {
-    @apply rounded-xl border border-white/70 bg-white/78 shadow-[0_22px_60px_rgba(56,85,65,0.11)] backdrop-blur;
+    @apply rounded-[1.75rem] border border-white/80 bg-white/88 shadow-[0_24px_72px_rgba(39,51,45,0.11)] backdrop-blur-md;
   }
 
   .cta-button {
-    @apply inline-flex items-center justify-center rounded-md bg-forest px-5 py-3 text-sm font-semibold text-white transition hover:bg-forest/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
+    @apply inline-flex items-center justify-center rounded-full bg-forest px-6 py-3.5 text-sm font-semibold tracking-[0.02em] text-white shadow-[0_16px_36px_rgba(56,85,65,0.16)] transition hover:-translate-y-0.5 hover:bg-forest/92 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
   }
 
-  /* Contactos-specific override: only change background color for that button */
   .contactos-cta {
-    background-color: #865E26;
+    background-color: #8f6324;
   }
 
-  /* Header links: white background, forest outline, green text (opposite of CTA) */
   .header-button {
-    @apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold transition-colors;
-    background-color: #ffffff;
+    @apply inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition-colors;
+    background-color: rgba(255, 255, 255, 0.95);
     color: var(--color-forest);
-    border: 1px solid var(--color-forest);
+    border: 1px solid rgba(56, 85, 65, 0.16);
   }
 
   .header-button:hover {
-    background-color: rgba(56,85,65,0.04);
+    background-color: rgba(56, 85, 65, 0.05);
   }
 
   .secondary-button {
-    @apply inline-flex items-center justify-center rounded-md border border-bronze/15 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-bronze/25 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
+    @apply inline-flex items-center justify-center rounded-full border border-bronze/15 bg-white/88 px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-bronze/30 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest;
   }
 }

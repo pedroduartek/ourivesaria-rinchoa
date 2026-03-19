@@ -2,7 +2,7 @@ import { siteContent } from '../content/siteContent'
 
 export function BrandMark() {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3 sm:gap-4">
       <div className="overflow-hidden flex items-center">
         <img
           src={siteContent.brand.logoSrc}
@@ -12,13 +12,15 @@ export function BrandMark() {
           onError={(e) => {
             ;(e.target as HTMLImageElement).style.display = 'none'
           }}
-          className="h-[72px] sm:h-[104px] md:h-[124px] lg:h-[140px] w-auto object-contain max-w-full"
+          className="h-14 w-auto max-w-full object-contain sm:h-16 md:h-20 lg:h-24"
         />
       </div>
 
-      <div className="min-w-0">
-        <p className="font-display text-2xl leading-none text-forest sm:text-3xl">{siteContent.brand.name}</p>
-        <p className="mt-1 text-xs font-light uppercase tracking-[0.28em] text-bronze/70">
+      <div className="hidden min-[460px]:block min-w-0">
+        <p className="font-display text-xl leading-none text-forest sm:text-2xl md:text-[2rem]">
+          {siteContent.brand.name}
+        </p>
+        <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-[0.26em] text-bronze/75 sm:text-[0.72rem]">
           {siteContent.brand.tagline}
         </p>
       </div>

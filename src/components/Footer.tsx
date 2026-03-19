@@ -4,8 +4,8 @@ import { BrandMark } from './BrandMark'
 
 export function Footer() {
   return (
-    <footer className="section-shell pb-8">
-      <div className="panel px-6 py-8">
+    <footer className="section-shell pb-10">
+      <div className="panel px-6 py-8 sm:px-8 sm:py-10">
         <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <BrandMark />

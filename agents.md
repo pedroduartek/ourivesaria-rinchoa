@@ -1,43 +1,43 @@
 # agents.md
 
-## Objetivo do projeto
+## Project Goal
 
-- Manter um website institucional rápido, credível e simples de atualizar para a Ourivesaria Rinchoa.
-- Centralizar conteúdo, SEO e dados de negócio para evitar duplicação entre páginas.
-- Garantir prontidão para deploy estático na Vercel com uma baseline de qualidade verificável.
+- Keep the Ourivesaria Rinchoa website fast, credible, and easy to maintain.
+- Centralize content, SEO, and business data to avoid duplication across pages.
+- Preserve a verifiable quality baseline for static deployment on Vercel.
 
-## Stack decidida
+## Chosen Stack
 
-- React 19 com TypeScript.
-- Vite 7 para desenvolvimento e build.
-- Tailwind CSS 4 via plugin oficial do Vite.
-- React Router para navegação SPA.
-- Vitest, Testing Library, jest-axe e cobertura V8 para testes.
-- ESLint para linting e `size-limit` para budgets de bundle.
-- `sharp` para geração de imagens WebP otimizadas.
+- React 19 with TypeScript.
+- Vite 7 for development and builds.
+- Tailwind CSS 4 through the official Vite plugin.
+- React Router for SPA navigation.
+- Vitest, Testing Library, jest-axe, and V8 coverage for tests.
+- ESLint for linting and `size-limit` for bundle budgets.
+- `sharp` for optimized WebP asset generation.
 
-## Arquitetura atual
+## Current Architecture
 
-- `src/content/siteContent.ts`: copy, CTAs, navegação, galerias e conteúdo de página.
-- `src/content/siteConfig.ts`: domínio canónico, dados da loja, imagem social default e dados usados no JSON-LD.
-- `src/components/seo/PageSEO.tsx`: gestão de título, descrição, canonical, Open Graph, Twitter e structured data.
-- `src/routes/AppRoutes.tsx`: rotas lazy-loaded da SPA.
-- `src/layouts/MainLayout.tsx`: shell comum com header, footer, skip link, suspense e error boundary.
-- `src/components/`: blocos partilhados como `Header`, `Footer`, `Carousel`, `ContactPanel` e `ActionLink`.
-- `assets/source-images/`: originais JPG/PNG usados para regenerar os assets web.
-- `public/images/`: assets WebP otimizados para entrega pública.
-- `scripts/optimize-images.mjs`: regeneração dos WebP públicos.
-- `.github/workflows/`: CI, bundle size e Lighthouse.
+- `src/content/siteContent.ts`: page copy, CTAs, navigation, galleries, and route content.
+- `src/content/siteConfig.ts`: canonical domain, business data, default social image, and JSON-LD inputs.
+- `src/components/seo/PageSEO.tsx`: title, description, canonical, Open Graph, Twitter, and structured data handling.
+- `src/routes/AppRoutes.tsx`: lazy-loaded SPA routes.
+- `src/layouts/MainLayout.tsx`: shared shell with header, footer, skip link, suspense, and error boundary.
+- `src/components/`: shared building blocks such as `Header`, `Footer`, `Carousel`, `ContactPanel`, and `ActionLink`.
+- `assets/source-images/`: original JPG/PNG files used to regenerate web assets.
+- `public/images/`: optimized WebP assets served publicly.
+- `scripts/optimize-images.mjs`: WebP generation script.
+- `.github/workflows/`: CI, bundle-size, and Lighthouse automation.
 
-## Workflow de manutenção
+## Maintenance Workflow
 
-- Atualizar este ficheiro sempre que a arquitetura ou a baseline de qualidade mudarem.
-- Preferir atualizar `src/content` em vez de hardcode em componentes.
-- Para alterações visuais, validar desktop e mobile.
-- Não reintroduzir ficheiros ou config de Firebase; o alvo atual é Vercel.
-- Não criar commits ou pushes em nome do utilizador.
+- Update this file whenever architecture or quality expectations change.
+- Prefer editing `src/content` over hardcoding copy into components.
+- Validate both desktop and mobile behavior for visual changes.
+- Do not reintroduce Firebase files or configuration; the deployment target is Vercel.
+- Do not create commits or pushes on behalf of the user.
 
-## Verificação local
+## Local Verification
 
 - `npm run check`
 - `npm test`
@@ -45,9 +45,9 @@
 - `npm run build`
 - `npm run size`
 
-## Estado após hardening
+## Current Baseline
 
-- SEO e structured data geridos por rota.
-- Imagens públicas principais entregues em WebP.
-- Testes cobrem rotas principais, navegação, ações de contacto, SEO e acessibilidade.
-- Workflows alinhados com esta stack `npm` + Vercel.
+- Route-level SEO and structured data are in place.
+- Primary public images are delivered as WebP.
+- Tests cover main routes, navigation, contact actions, SEO, and accessibility.
+- Workflows are aligned with this `npm` + Vercel stack.

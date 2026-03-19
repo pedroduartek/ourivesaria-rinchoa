@@ -11,10 +11,10 @@ export function ContactosPage() {
       <div className="space-y-8">
         <section className="section-shell">
           <div className="panel px-6 py-8 sm:px-8 sm:py-10">
-            <h1 className="text-3xl font-semibold text-slate-900">
+            <h1 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
               {contactPage.hero.title}
             </h1>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
               {contactPage.hero.description}
             </p>
 
@@ -30,7 +30,7 @@ export function ContactosPage() {
             </div>
 
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-bronze/10 bg-gradient-to-br from-white via-white to-champagne px-5 py-5">
+              <div className="rounded-[1.5rem] border border-bronze/10 bg-gradient-to-br from-white via-white to-champagne px-5 py-5 shadow-[0_18px_40px_rgba(39,51,45,0.05)]">
                 <h2 className="text-lg font-semibold text-slate-900">
                   {contactPage.visitCard.title}
                 </h2>
@@ -42,7 +42,7 @@ export function ContactosPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
+              <div className="rounded-[1.5rem] border border-bronze/10 bg-white/88 px-5 py-5">
                 <h2 className="text-lg font-semibold text-slate-900">
                   {contactPage.methodsTitle}
                 </h2>
@@ -60,7 +60,7 @@ export function ContactosPage() {
                 </ul>
               </div>
 
-              <div className="rounded-xl border border-bronze/10 bg-white/85 px-5 py-5">
+              <div className="rounded-[1.5rem] border border-bronze/10 bg-white/88 px-5 py-5">
                 <h2 className="text-lg font-semibold text-slate-900">
                   {contactPage.hoursTitle}
                 </h2>
@@ -76,7 +76,7 @@ export function ContactosPage() {
                 </ul>
               </div>
 
-              <div className="overflow-hidden rounded-xl border border-bronze/10">
+              <div className="overflow-hidden rounded-[1.5rem] border border-bronze/10 bg-white/88">
                 <iframe
                   title={contactPage.map.title}
                   src={contactPage.map.embedSrc}

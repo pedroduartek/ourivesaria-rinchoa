@@ -12,7 +12,7 @@ export function RestauracaoPage() {
       <PageSEO meta={restoration.meta} />
       <div className="space-y-24">
         <section className="section-shell">
-          <div className="panel grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="panel grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
                 {restoration.hero.eyebrow}
@@ -36,7 +36,7 @@ export function RestauracaoPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-bronze/10 bg-gradient-to-br from-white via-champagne to-silver px-6 py-6">
+            <div className="rounded-[1.5rem] border border-bronze/10 bg-gradient-to-br from-white via-champagne to-silver px-6 py-6 shadow-[0_18px_40px_rgba(39,51,45,0.06)]">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-bronze/80">
                 {restoration.hero.resultCard.eyebrow}
               </p>
@@ -86,7 +86,7 @@ export function RestauracaoPage() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {restoration.highlights.items.map((item) => (
-              <article key={item.title} className="panel px-5 py-6">
+              <article key={item.title} className="panel h-full px-5 py-6">
                 <h2 className="text-3xl text-slate-900">{item.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-slate-600">
                   {item.description}
@@ -105,7 +105,7 @@ export function RestauracaoPage() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {restoration.process.map((item) => (
-              <article key={item.title} className="panel px-5 py-6">
+              <article key={item.title} className="panel h-full px-5 py-6">
                 <h2 className="text-3xl text-slate-900">{item.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-slate-600">
                   {item.description}

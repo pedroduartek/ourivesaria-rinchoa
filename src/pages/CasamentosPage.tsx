@@ -12,7 +12,7 @@ export function CasamentosPage() {
       <PageSEO meta={weddings.meta} />
       <div className="space-y-24">
         <section className="section-shell">
-          <div className="panel grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.06fr_0.94fr]">
+          <div className="panel grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-bronze/80">
                 {weddings.hero.eyebrow}
@@ -57,7 +57,7 @@ export function CasamentosPage() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {weddings.offerings.items.map((item) => (
-              <article key={item.title} className="panel px-5 py-6">
+              <article key={item.title} className="panel h-full px-5 py-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-deep">
                   {item.accent}
                 </p>
@@ -79,7 +79,7 @@ export function CasamentosPage() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-4">
             {weddings.journey.items.map((item) => (
-              <article key={item.title} className="panel px-5 py-6">
+              <article key={item.title} className="panel h-full px-5 py-6">
                 <h2 className="text-3xl text-slate-900">{item.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-slate-600">
                   {item.description}
@@ -98,7 +98,7 @@ export function CasamentosPage() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {weddings.guidance.map((item) => (
-              <article key={item.title} className="panel px-5 py-6">
+              <article key={item.title} className="panel h-full px-5 py-6">
                 <h2 className="text-3xl text-slate-900">{item.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-slate-600">
                   {item.description}

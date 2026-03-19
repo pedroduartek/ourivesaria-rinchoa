@@ -5,20 +5,21 @@ import { renderApp } from './test/renderApp'
 import { siteContent } from './content/siteContent'
 
 describe('Ourivesaria Rinchoa SPA', () => {
-  it('mostra a proposta principal na página inicial', async () => {
+  it('renders the main offer on the home page', async () => {
     renderApp()
 
     expect(
       await screen.findByRole('heading', { level: 1, name: siteContent.home.hero.title }),
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('link', { name: /ver serviços de casamento/i })).toHaveAttribute(
-      'href',
-      '/casamentos',
-    )
+    expect(
+      screen.getByRole('link', {
+        name: siteContent.home.hero.secondaryAction.label,
+      }),
+    ).toHaveAttribute('href', '/casamentos')
   })
 
-  it('permite navegar para a página de restauro a partir do menu móvel', async () => {
+  it('navigates to the watch-repair page from the mobile menu', async () => {
     const user = userEvent.setup()
     renderApp()
 
@@ -30,48 +31,54 @@ describe('Ourivesaria Rinchoa SPA', () => {
 
     await user.click(
       within(mobileNavigation).getByRole('link', {
-        name: /reparação e manutenção de relógios/i,
+        name: siteContent.navigation[1].label,
       }),
     )
 
     expect(
       await screen.findByRole('heading', {
-        name: /relógios com nova presença, sem perder a história da peça/i,
+        name: siteContent.restoration.hero.title,
       }),
     ).toBeInTheDocument()
   })
 
-  it('permite navegar para contactos a partir da home', async () => {
+  it('navigates to the contact page from the home hero', async () => {
     const user = userEvent.setup()
     renderApp()
 
-    await user.click(screen.getByRole('link', { name: /marcar visita/i }))
+    await user.click(
+      screen.getByRole('link', { name: siteContent.home.hero.primaryAction.label }),
+    )
 
     expect(
-      await screen.findByRole('heading', { name: /contactos e loja/i }),
+      await screen.findByRole('heading', { name: siteContent.contactPage.hero.title }),
     ).toBeInTheDocument()
   })
 
-  it('troca o slide ativo do carousel manualmente', async () => {
+  it('changes the active carousel slide manually', async () => {
     const user = userEvent.setup()
     renderApp()
 
-    expect(screen.getByRole('heading', { name: /receção cuidada e apresentação refinada/i })).toBeVisible()
+    expect(
+      screen.getByRole('heading', {
+        name: siteContent.home.carouselSlides[0].title,
+      }),
+    ).toBeVisible()
 
     await user.click(screen.getByRole('button', { name: /slide seguinte/i }))
 
     expect(
       screen.getByRole('heading', {
-        name: /limpeza profunda e reparação e manutenção de relógios/i,
+        name: siteContent.home.carouselSlides[1].title,
       }),
     ).toBeVisible()
   })
 
-  it('expõe ações de contacto diretas na página de contactos', async () => {
+  it('exposes direct contact actions on the contact page', async () => {
     renderApp(['/contactos'])
 
     expect(
-      await screen.findByRole('heading', { name: /contactos e loja/i }),
+      await screen.findByRole('heading', { name: siteContent.contactPage.hero.title }),
     ).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /falar por whatsapp/i })).toHaveAttribute(
@@ -94,10 +101,10 @@ describe('Ourivesaria Rinchoa SPA', () => {
     ).toBe(true)
   })
 
-  it('aplica metadados SEO por rota', async () => {
+  it('applies route-level SEO metadata', async () => {
     renderApp(['/contactos'])
 
-    await screen.findByRole('heading', { name: /contactos e loja/i })
+    await screen.findByRole('heading', { name: siteContent.contactPage.hero.title })
 
     await waitFor(() => {
       expect(document.title).toBe(siteContent.contactPage.meta.title)
@@ -120,7 +127,7 @@ describe('Ourivesaria Rinchoa SPA', () => {
     })
   })
 
-  it('mostra a página 404 e marca-a como noindex', async () => {
+  it('renders the 404 page and marks it as noindex', async () => {
     renderApp(['/rota-inexistente'])
 
     expect(
@@ -139,29 +146,29 @@ describe('Ourivesaria Rinchoa SPA', () => {
     })
   })
 
-  it('não apresenta violações de acessibilidade na página inicial', async () => {
+  it('has no accessibility violations on the home page', async () => {
     const { container } = renderApp()
 
     await screen.findByRole('heading', { name: siteContent.home.hero.title })
 
-    // Remove cross-origin iframes (e.g. Google Maps) before axe runs
+    // Remove cross-origin iframes before axe runs
     container.querySelectorAll('iframe').forEach((f) => f.remove())
 
     expect(await axe(container)).toHaveNoViolations()
   })
 
-  it('não apresenta violações de acessibilidade na página de casamentos', async () => {
+  it('has no accessibility violations on the weddings page', async () => {
     const { container } = renderApp(['/casamentos'])
 
     await screen.findByRole('heading', { name: siteContent.weddings.hero.title })
 
-    // Remove cross-origin iframes (e.g. Google Maps) before axe runs
+    // Remove cross-origin iframes before axe runs
     container.querySelectorAll('iframe').forEach((f) => f.remove())
 
     expect(await axe(container)).toHaveNoViolations()
   })
 
-  it('não apresenta violações de acessibilidade na página de contactos', async () => {
+  it('has no accessibility violations on the contact page', async () => {
     const { container } = renderApp(['/contactos'])
 
     await screen.findByRole('heading', { name: siteContent.contactPage.hero.title })

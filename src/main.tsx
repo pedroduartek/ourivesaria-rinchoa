@@ -6,7 +6,7 @@ import './styles.css'
 const rootElement = document.getElementById('root')
 
 if (!rootElement) {
-  throw new Error('Elemento root não encontrado.')
+  throw new Error('Root element not found.')
 }
 
 createRoot(rootElement).render(
@@ -14,4 +14,3 @@ createRoot(rootElement).render(
     <App />
   </StrictMode>,
 )
-
