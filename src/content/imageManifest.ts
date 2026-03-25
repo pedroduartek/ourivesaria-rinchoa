@@ -23,32 +23,32 @@ const imageManifest: Record<string, ImageAsset> = {
   '/images/aliancas.webp': {
     width: 1600,
     height: 2400,
-    widths: [640, 1024, 1600],
+    widths: [160, 240, 320, 480, 819],
   },
   '/images/gravacao_aliancas.webp': {
     width: 1600,
     height: 1067,
-    widths: [640, 1024, 1600],
+    widths: [320, 480, 640, 960, 1200],
   },
   '/images/big_watch_to_repare.webp': {
     width: 1400,
     height: 1050,
-    widths: [700, 1400],
+    widths: [240, 360, 540, 720],
   },
   '/images/repaired_watch.webp': {
     width: 720,
     height: 960,
-    widths: [360, 720],
+    widths: [320, 480, 640, 960],
   },
   '/images/repaired_watch_2.webp': {
     width: 960,
     height: 720,
-    widths: [480, 960],
+    widths: [240, 360, 540, 720],
   },
   '/images/repaired_watch_3.webp': {
     width: 720,
     height: 960,
-    widths: [360, 720],
+    widths: [240, 360, 540, 720],
   },
   '/images/watch_mechanism.webp': {
     width: 720,

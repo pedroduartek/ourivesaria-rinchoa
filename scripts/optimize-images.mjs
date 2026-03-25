@@ -15,7 +15,7 @@ const images = [
   {
     input: 'assets/source-images/rinchoa_logo.png',
     output: 'public/images/rinchoa_logo.webp',
-    widths: [240, 480, 900],
+    widths: [160, 240, 320, 480, 900],
     quality: 72,
   },
   {
@@ -44,8 +44,8 @@ const images = [
   },
   {
     input: 'assets/source-images/medium_watch_repaired.jpg',
+    widths: [320, 480, 640, 960, 1200],
     output: 'public/images/medium_watch_repaired.webp',
-    widths: [600, 1200],
     quality: 80,
   },
   {
@@ -57,19 +57,19 @@ const images = [
   {
     input: 'assets/source-images/repaired_watch.jpg',
     output: 'public/images/repaired_watch.webp',
-    widths: [360, 720],
+    widths: [240, 360, 540, 720],
     quality: 80,
   },
   {
     input: 'assets/source-images/repaired_watch_2.jpg',
     output: 'public/images/repaired_watch_2.webp',
-    widths: [480, 960],
+    widths: [320, 480, 640, 960],
     quality: 80,
   },
   {
     input: 'assets/source-images/repaired_watch_3.jpg',
     output: 'public/images/repaired_watch_3.webp',
-    widths: [360, 720],
+    widths: [240, 360, 540, 720],
     quality: 80,
   },
   {
@@ -99,7 +99,7 @@ const images = [
   {
     input: 'assets/source-images/watch_to_sell.jpg',
     output: 'public/images/watch_to_sell.webp',
-    widths: [360, 720],
+    widths: [240, 360, 540, 720],
     quality: 80,
   },
 ]

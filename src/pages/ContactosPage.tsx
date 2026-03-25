@@ -79,7 +79,7 @@ export function ContactosPage() {
                         className="absolute inset-0 w-full h-full object-cover object-[center_60%]"
                         src={image.src}
                         srcSet={image.srcSet}
-                        sizes="(max-width: 1024px) 100vw, 100vw"
+                        sizes="(max-width: 639px) calc(100vw - 6rem), (max-width: 1279px) calc(100vw - 8rem), calc(100vw - 12rem)"
                         alt={contactPage.visitCard.title}
                         width={image.width}
                         height={image.height}
@@ -133,7 +133,7 @@ export function ContactosPage() {
                       decoding="async"
                       src={image.src}
                       srcSet={image.srcSet}
-                      sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1280px) calc((100vw - 5rem) / 2), 20vw"
+                      sizes="(max-width: 639px) calc(100vw - 6rem), (max-width: 1279px) calc((100vw - 9rem) / 2), calc((100vw - 16rem) / 5)"
                       alt={item.alt}
                       width={image.width}
                       height={image.height}
