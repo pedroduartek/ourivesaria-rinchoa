@@ -5,6 +5,9 @@
   ],
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/relay/insights/script.js", "dest": "/_vercel/insights/script.js" },
+    { "src": "/relay/insights/view", "dest": "/_vercel/insights/view" },
+    { "src": "/relay/insights/event", "dest": "/_vercel/insights/event" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
