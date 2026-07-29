@@ -9,7 +9,7 @@ const images = [
   {
     input: 'assets/source-images/store_front.png',
     output: 'public/images/store_front.webp',
-    widths: [640, 1024, 1600],
+    widths: [320, 480, 640, 1024, 1600],
     quality: 76,
   },
   {
@@ -21,13 +21,13 @@ const images = [
   {
     input: 'assets/source-images/aliancas.jpg',
     output: 'public/images/aliancas.webp',
-    widths: [640, 1024, 1600],
+    widths: [320, 480, 640, 1024, 1600],
     quality: 78,
   },
   {
     input: 'assets/source-images/gravacao_aliancas.jpg',
     output: 'public/images/gravacao_aliancas.webp',
-    widths: [640, 1024, 1600],
+    widths: [320, 480, 640, 1024, 1600],
     quality: 78,
   },
   {
@@ -39,7 +39,7 @@ const images = [
   {
     input: 'assets/source-images/big_watch_to_repare.jpg',
     output: 'public/images/big_watch_to_repare.webp',
-    widths: [700, 1400],
+    widths: [320, 480, 700, 1400],
     quality: 80,
   },
   {
@@ -51,7 +51,7 @@ const images = [
   {
     input: 'assets/source-images/repair_bench.jpg',
     output: 'public/images/repair_bench.webp',
-    widths: [720, 1200],
+    widths: [360, 720, 1200],
     quality: 80,
   },
   {

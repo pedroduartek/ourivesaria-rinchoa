@@ -13,7 +13,7 @@ const imageManifest: Record<string, ImageAsset> = {
   '/images/store_front.webp': {
     width: 1536,
     height: 1024,
-    widths: [640, 1024, 1536],
+    widths: [320, 480, 640, 1024, 1536],
   },
   '/images/watch_being_repared.webp': {
     width: 720,
@@ -23,17 +23,17 @@ const imageManifest: Record<string, ImageAsset> = {
   '/images/aliancas.webp': {
     width: 1600,
     height: 2400,
-    widths: [640, 1024, 1600],
+    widths: [320, 480, 640, 1024, 1600],
   },
   '/images/gravacao_aliancas.webp': {
     width: 1600,
     height: 1067,
-    widths: [640, 1024, 1600],
+    widths: [320, 480, 640, 1024, 1600],
   },
   '/images/big_watch_to_repare.webp': {
     width: 1400,
     height: 1050,
-    widths: [700, 1400],
+    widths: [320, 480, 700, 1400],
   },
   '/images/repaired_watch.webp': {
     width: 720,
@@ -78,7 +78,7 @@ const imageManifest: Record<string, ImageAsset> = {
   '/images/repair_bench.webp': {
     width: 720,
     height: 960,
-    widths: [720],
+    widths: [360, 720],
   },
 } as const
 
