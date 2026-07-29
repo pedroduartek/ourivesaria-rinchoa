@@ -8,7 +8,7 @@ const imageManifest: Record<string, ImageAsset> = {
   '/images/rinchoa_logo.webp': {
     width: 819,
     height: 438,
-    widths: [240, 480, 819],
+    widths: [160, 240, 320, 480, 819],
   },
   '/images/store_front.webp': {
     width: 1536,
@@ -23,27 +23,27 @@ const imageManifest: Record<string, ImageAsset> = {
   '/images/aliancas.webp': {
     width: 1600,
     height: 2400,
-    widths: [160, 240, 320, 480, 819],
+    widths: [640, 1024, 1600],
   },
   '/images/gravacao_aliancas.webp': {
     width: 1600,
     height: 1067,
-    widths: [320, 480, 640, 960, 1200],
+    widths: [640, 1024, 1600],
   },
   '/images/big_watch_to_repare.webp': {
     width: 1400,
     height: 1050,
-    widths: [240, 360, 540, 720],
+    widths: [700, 1400],
   },
   '/images/repaired_watch.webp': {
     width: 720,
     height: 960,
-    widths: [320, 480, 640, 960],
+    widths: [240, 360, 540, 720],
   },
   '/images/repaired_watch_2.webp': {
     width: 960,
     height: 720,
-    widths: [240, 360, 540, 720],
+    widths: [320, 480, 640, 960],
   },
   '/images/repaired_watch_3.webp': {
     width: 720,
@@ -52,7 +52,7 @@ const imageManifest: Record<string, ImageAsset> = {
   },
   '/images/watch_mechanism.webp': {
     width: 720,
-    height: 960,
+    height: 540,
     widths: [360, 720],
   },
   '/images/watch_mechanism_2.webp': {
@@ -62,20 +62,34 @@ const imageManifest: Record<string, ImageAsset> = {
   },
   '/images/watch_mechanism_3.webp': {
     width: 720,
-    height: 960,
+    height: 540,
     widths: [360, 720],
   },
   '/images/medium_watch_repaired.webp': {
     width: 1200,
     height: 1952,
-    widths: [600, 1200],
+    widths: [320, 480, 640, 960, 1200],
   },
   '/images/watch_to_sell.webp': {
     width: 720,
     height: 960,
-    widths: [360, 720],
+    widths: [240, 360, 540, 720],
+  },
+  '/images/repair_bench.webp': {
+    width: 720,
+    height: 960,
+    widths: [720],
   },
 } as const
+
+/**
+ * Every image the manifest describes. The widths above must stay in sync with
+ * scripts/optimize-images.mjs, which is what actually writes the files: a width
+ * declared here without a matching file on disk becomes a 404 srcSet candidate
+ * that browsers may still pick, rendering a broken image. src/test/imageManifest.test.ts
+ * walks these paths and fails the build if that drift returns.
+ */
+export const imageManifestPaths = Object.keys(imageManifest)
 
 function getVariantPath(src: string, width: number, asset: ImageAsset) {
   const largestWidth = asset.widths[asset.widths.length - 1]
